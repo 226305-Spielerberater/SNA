@@ -23,11 +23,12 @@ relation
 
 
 Node-Attribute
+
 type
 Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten:
 
-1=Personen (Spielerberater, Fußballprofis)
-2=Organisationen/Vereine
+0=Personen (Spielerberater, Fußballprofis)
+1=Organisationen/Vereine
 
 age
 1=18-21
@@ -47,6 +48,7 @@ Marktwert der Spieler
 5=41-50 Mio.
 6=51-60 Mio.
 7=61 Mio. und höher. 
+
 position
 Position der Profi-Fußballer. Bei Spielern, die mehrere Positionen spielen können, wird deren hauptsächliche Positionsrolle verwendet. 
 
