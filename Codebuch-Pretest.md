@@ -1,13 +1,13 @@
 <h1>Datensatz Pretest Netzwerkforschung Spielerberater SNA_5</h1>
 
-<h2>Codebuch Stand 2020-20-07</h2>
-<h2>erstellt von Rippler, Volz, Palleit, Jung</h2>
+Codebuch Stand 2020-20-07 <p>
+<erstellt von Rippler, Volz, Palleit, Jung
 
-<h2>Inhalt
+<h2>Inhalt</h2>
 <ul>
   <li>Edges.csv (Edgelist)</li>
   <li>Nodes.csv (Nodelist)</li>
-  <li>Codebuch.rm (Codierung der Datensätze)</li>
+  <li>Codebuch.md (Codierung der Datensätze)</li>
 </ul>  
  
 <h2>Ursprung und Datenerhebung<h2>
