@@ -12,12 +12,12 @@ erstellt von Rippler, Volz, Palleit, Jung
  
 <h2>Ursprung und Datenerhebung</h2>
 
-Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Wir untersuchen das Netzwerk der Spielerberatungsfirma Bahia Internacional. Wir haben diese Spielerberatungsfirma ausgewählt, da der Spielerberater Jose Otin dort arbeitet. Dieser belegt auf einer 
-<a href="https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Liste der Spielerberater mit den meisten Provisionen 2018</a> Platz 5. <p>
+Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Wir untersuchen das Netzwerk der Spielerberatungsfirmen Bahia Internacional und Sports Total. Wir haben diese Spielerberatungsfirmen ausgewählt, da die Spielerberater Jose Otin (BI) und Volker Struth (Sports Total) dort arbeiten. Diese belegn auf einer 
+<a href="https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Liste der Spielerberater mit den meisten Provisionen 2018</a> Platz 5 und Platz 4. <p>
 
 Das Netzwerk ist ein gerichtetes two-mode Teilnetzwerk. Es wurden folgende Fragen erhoben: Welche Profifußballer beraten die Spielerberatungsfirmen Sports Total und Bahia Internacional? Ist ein Muster erkennbar? 
 
-Wir beschränken uns dabei auf die jeweils ersten 10 Spieler mit dem höchsten Marktwert (BI: Ceballos bis Camacho; ST: Kroos bis Mittelstädt). Quelle: <a href="https://www.transfermarkt.com/bahia-internacional/beraterfirma/berater/1033">Transfermarkt Bahia Internacional</a> und <a href="https://www.transfermarkt.tv/sportstotal/beraterfirma/berater/199">Transfermarkt Sports Total</a>  
+Wir beschränken uns dabei auf die jeweils ersten 10 Spieler mit dem höchsten Marktwert (BI: Ceballos bis Camacho; ST: Kroos bis Mittelstädt). Quellen: <a href="https://www.transfermarkt.com/bahia-internacional/beraterfirma/berater/1033">Transfermarkt Bahia Internacional</a> und <a href="https://www.transfermarkt.tv/sportstotal/beraterfirma/berater/199">Transfermarkt Sports Total</a>  
 
 <p> Ausgangslage ist die Saison 19/20 - die zwei Transferperioden von Juli bis Oktober 2020 werden also nicht berücksichtigt. </p>
 
