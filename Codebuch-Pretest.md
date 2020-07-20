@@ -15,8 +15,11 @@ erstellt von Rippler, Volz, Palleit, Jung
 Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Wir untersuchen das Netzwerk der Spielerberatungsfirma Bahia Internacional. Wir haben diese Spielerberatungsfirma ausgewählt, da der Spielerberater Jose Otin dort arbeitet. Dieser belegt auf einer 
 <a href="https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Liste der Spielerberater mit den meisten Provisionen 2018</a> Platz 5. <p>
 
-Das Netzwerk ist ein gerichtetes two-mode Ego/Akteursnetzwerk. Es wurden folgende Fragen erhoben: Welche Profifußballer berät die Spielerberatungsfirma? Ist ein Muster erkennbar? 
-Wir beschränken uns dabei auf die ersten 20 Spieler (Ceballos bis Camacho). Quelle: <a href="https://www.transfermarkt.com/bahia-internacional/beraterfirma/berater/1033">Transfermarkt</a>
+Das Netzwerk ist ein gerichtetes two-mode Teilnetzwerk. Es wurden folgende Fragen erhoben: Welche Profifußballer beraten die Spielerberatungsfirmen Sports Total und Bahia Internacional? Ist ein Muster erkennbar? 
+
+Wir beschränken uns dabei auf die jeweils ersten 10 Spieler mit dem höchsten Marktwert (BI: Ceballos bis Camacho; ST: Kroos bis Mittelstädt). Quelle: <a href="https://www.transfermarkt.com/bahia-internacional/beraterfirma/berater/1033">Transfermarkt Bahia Internacional</a> und <a href="https://www.transfermarkt.tv/sportstotal/beraterfirma/berater/199">Transfermarkt Sports Total</a>  
+
+<p> Ausgangslage ist die Saison 19/20 - die zwei Transferperioden von Juli bis Oktober 2020 werden also nicht berücksichtigt. </p>
 
 
 <h2>Edge-Attribute</h2>
@@ -27,7 +30,8 @@ Wir beschränken uns dabei auf die ersten 20 Spieler (Ceballos bis Camacho). Que
 2=Liga-Beziehung (der Spieler spielt in der Liga) <p>
 3=Vereinsbeziehung <p>
 4=Nationalmannschaftsbeziehung /wenn Spieler aktuell in Nationalmannschaft spielt und bei transfermarkt.de im Kader derjeweiligen Nationalmannschaft gelistet ist) <p>
-5=Mitspieler im Verein <p>
+5=Teamkollegen im Verein (zwei Spieler spielen im selben Verein) <p>
+6=Nationalmannschaftskollegen (zwei Spieler spielen in der selben Nationalmannschaft
 
 
 
@@ -50,6 +54,11 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
 <h3>nation</h3>
 
 1=Spanien
+2=Deutschland <p>
+3=Schweiz
+4=Frankreich
+5=Mali
+  
 
 <h3>value</h3>
 Marktwert der Spieler in Euro <p>
