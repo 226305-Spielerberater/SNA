@@ -27,6 +27,7 @@ Wir beschränken uns dabei auf die ersten 20 Spieler (Ceballos bis Camacho). Que
 2=Liga-Beziehung (der Spieler spielt in der Liga) <p>
 3=Vereinsbeziehung <p>
 4=Nationalmannschaftsbeziehung /wenn Spieler aktuell in Nationalmannschaft spielt und bei transfermarkt.de im Kader derjeweiligen Nationalmannschaft gelistet ist) <p>
+5=Mitspieler im Verein <p>
 
 
 
