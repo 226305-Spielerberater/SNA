@@ -55,9 +55,9 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
 
 1=Spanien
 2=Deutschland <p>
-3=Schweiz
-4=Frankreich
-5=Mali
+3=Schweiz <p>
+4=Frankreich <p>
+5=Mali <p>
   
 
 <h3>value</h3>
