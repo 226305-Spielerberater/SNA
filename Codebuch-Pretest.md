@@ -52,8 +52,8 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
 <h3>value</h3>
 Marktwert der Spieler in Euro <p>
 
-1=5-10 Mio. Euro <p>
-2=11-20 Mio. Euro <p>
+1= 5-10 Mio. <p>
+2=11-20 Mio. <p>
 3=21-30 Mio. <p>
 4=31-40 Mio. <p>
 5=41-50 Mio. <p>
