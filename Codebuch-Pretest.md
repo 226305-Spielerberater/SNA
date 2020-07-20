@@ -10,11 +10,11 @@ erstellt von Rippler, Volz, Palleit, Jung
   <li>Codebuch.md (Codierung der Datensätze)</li>
 </ul>  
  
-<h2>Ursprung und Datenerhebung<h2>
+<h2>Ursprung und Datenerhebung</h2>
 
 Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Wir untersuchen das Netzwerk der Spielerberatungsfirma Bahia Internacional. Wir haben diese Spielerberatungsfirma ausgewählt, da der Spielerberater Jose Otin dort arbeitet. Dieser belegt auf einer 
-<a href="https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Liste der Spielerberater mit den meisten Provisionen 2018</a> Platz 5.
-Liste der  Platz. Quelle:  https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen). 
+<a href="https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Liste der Spielerberater mit den meisten Provisionen 2018</a> Platz 5. <p>
+
 Das Netzwerk ist ein gerichtetes two-mode Ego/Akteursnetzwerk. Es wurden folgende Fragen erhoben: Welche Profifußballer berät die Spielerberatungsfirma? Ist ein Muster erkennbar? 
 Wir beschränken uns dabei auf die ersten 20 Spieler (Ceballos bis Camacho). Quelle: <a href="https://www.transfermarkt.com/bahia-internacional/beraterfirma/berater/1033">Transfermarkt</a>
 
