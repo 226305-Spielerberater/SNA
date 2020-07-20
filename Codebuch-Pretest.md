@@ -22,6 +22,7 @@ Wir beschränken uns dabei auf die ersten 20 Spieler (Ceballos bis Camacho). Que
 <h2>Edge-Attribute</h2>
 
 <h3>relation</h3>
+
 1=Geschäftsbeziehung zwischen Spielerberater und Fußballprofi <p>
 2=Liga-Beziehung (der Spieler spielt in der Liga) <p>
 3=Vereinsbeziehung <p>
