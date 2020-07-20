@@ -53,11 +53,11 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
 
 <h3>nation</h3>
 
-1=Spanien
-2=Deutschland <p>
-3=Schweiz <p>
-4=Frankreich <p>
-5=Mali <p>
+1=spanisch
+2=deutsch <p>
+3=schweizer Nationalität <p>
+4=französisch <p>
+5=malisch <p>
   
 
 <h3>value</h3>
