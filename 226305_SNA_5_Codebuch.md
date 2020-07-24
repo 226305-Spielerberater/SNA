@@ -14,7 +14,7 @@ erstellt von Rippler, Volz, Palleit, Jung <p>
  
 <h2>Ursprung und Datenerhebung</h2>
 
-<p>Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Die Basis bildet ein <a href=”"https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen"<Ranking der erfolgreichsten Spielerberater nach Provisionen im Jahr 2018.</a> </p>
+<p>Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Die Basis bildet ein <a href=”"https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Ranking der erfolgreichsten Spielerberater nach Provisionen im Jahr 2018.</a> </p>
 <p>Das Netzwerk ist ein gerichtetes two-mode Teilnetzwerk. Es wurden folgende Fragen erhoben: Welche Profifußballer beraten die Spielerberatungsfirmen/Spielerberater? Ist ein Muster erkennbar? Und welche Beziehungen bestehen zwischen den Spielern? </p>
 
 <p>Wir beschränken uns dabei auf die jeweils 20 wertvollsten Spieler nach Marktwert in Euro.</p>
