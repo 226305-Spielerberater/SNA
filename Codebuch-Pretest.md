@@ -73,7 +73,7 @@ Marktwert der Spieler in Euro <p>
 
 <h3>position</h3>
 
-Position der Profi-Fußballer. Bei Spielern, die mehrere Positionen spielen können, wird deren hauptsächliche Positionsrolle verwendet. <p>
+Position der Profi-Fußballer. Bei Spielern, die mehrere Positionen spielen können, wird deren hauptsächliche Positionsrolle verwendet. Flügelspieler zählen als Stürmer. <p>
 
 1= Torwart <p>
 2=Verteidiger <p>
