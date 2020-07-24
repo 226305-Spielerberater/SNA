@@ -1,6 +1,6 @@
 <h1>Datensatz Pretest Netzwerkforschung Spielerberater SNA_5</h1>
 
-Codebuch Stand 2020-20-07 <p>
+Codebuch Stand 2020-24-07 <p>
 erstellt von Rippler, Volz, Palleit, Jung
 
 <h2>Inhalt</h2>
@@ -53,7 +53,7 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
 
 <h3>nation</h3>
 
-1=spanisch
+1=spanisch <p>
 2=deutsch <p>
 3=schweizer Nationalität <p>
 4=französisch <p>
