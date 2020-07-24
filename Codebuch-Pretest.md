@@ -52,7 +52,8 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
 5=34 und älter <p>
 
 <h3>nation</h3>
-
+bei doppelter Staatsbürgerschaft wird die erste Nation genommen <p>
+  
 1=spanisch <p>
 2=deutsch <p>
 3=schweizer Nationalität <p>
@@ -61,7 +62,7 @@ Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten: <p>
   
 
 <h3>value</h3>
-Marktwert der Spieler in Euro <p>
+Marktwert der Spieler in Euro. Gegebenenfalls wird gerundet. <p>
 
 1= 5-10 Mio. <p>
 2=11-20 Mio. <p>
