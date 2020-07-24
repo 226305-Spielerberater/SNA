@@ -29,9 +29,9 @@ Wir beschränken uns dabei auf die jeweils ersten 10 Spieler mit dem höchsten M
 1=Geschäftsbeziehung zwischen Spielerberater und Fußballprofi <p>
 2=Liga-Beziehung (der Spieler spielt in der Liga) <p>
 3=Vereinsbeziehung <p>
-4=Nationalmannschaftsbeziehung /wenn Spieler aktuell in Nationalmannschaft spielt und bei transfermarkt.de im Kader derjeweiligen Nationalmannschaft gelistet ist) <p>
+4= Nationalmannschafts-Beziehung: derSpieler spielt in der Nationalmannschaft: hierbei zählt der Nationalmannschaftskader des jeweiligen Landes von transfermarkt.de im Jahr 2019, da bis Septmeber 2020 wegen Corona wenig bis gar keine Länderspiele stattgefunden haben) <p>
 5=Teamkollegen im Verein (zwei Spieler spielen im selben Verein) <p>
-6=Nationalmannschaftskollegen (zwei Spieler spielen in der selben Nationalmannschaft
+6=Teamkollegen in der Nationalmannschaft (zwei Spieler spielen in der gleichen Nationalmannschaft) <p>
 
 
 
