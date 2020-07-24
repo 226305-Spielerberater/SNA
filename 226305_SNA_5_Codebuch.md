@@ -1,8 +1,8 @@
 <h1>Datensatz Netzwerkforschung Spielerberater SNA_5</h1>
 
 
-Codebuch Stand 2020-01-07
-erstellt von 
+Codebuch Stand 2020-24-07 <p>
+erstellt von Rippler, Volz, Palleit, Jung <p>
 
 
 <h2>Inhalt</h2>
