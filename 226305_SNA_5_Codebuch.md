@@ -1,4 +1,4 @@
-<h1<Datensatz Netzwerkforschung Spielerberater SNA_5</h1>
+<h1>Datensatz Netzwerkforschung Spielerberater SNA_5</h1>
 
 
 Codebuch Stand 2020-01-07
