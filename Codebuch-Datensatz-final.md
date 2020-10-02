@@ -114,6 +114,8 @@ ST = Sports Total
 MR = Mino Raiola
 PROP = Pro Profil GmBH
 FF = Fernando Felicevich
+JM=
+JF=
 
 <h3>Abkürzungen Spieler</h3> 
 Javi Martinez = Martinez_Javi
