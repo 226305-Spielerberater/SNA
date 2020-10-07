@@ -1,6 +1,6 @@
 <h1>finaler Datensatz Netzwerkforschung Spielerberater SNA_5</h1>
 
-Codebuch Stand 2020-02-10 <p>
+Codebuch Stand 2020-07-10 <p>
 erstellt von Rippler, Volz, Palleit, Jung
 
 Codebuch Stand 2020-24-07
@@ -119,6 +119,8 @@ von welchem Spielerberater/von welcher Spielerberateragentur wird der Spieler be
 5= Jose Otin / Bahia Internacional  (BI) <p>
 6= Meissa N'Diaye  (MN) <p>
 7= Thomas Kroth / Pro Profil GmbH (PROP) <p>
+8= Fernando Felicevich (FF) <p>
+
 
 
 
