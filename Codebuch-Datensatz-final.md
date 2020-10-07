@@ -87,6 +87,7 @@ bei doppelter Staatsbürgerschaft wird die erste Nation genommen <p>
 33=Kroatien <p>
 34=Island <p>
 35=Marokko <p>
+  
 <h3>value</h3>
 Marktwert der Spieler in Euro. Gegebenenfalls wird gerundet. <p> 
 
@@ -99,6 +100,7 @@ Marktwert der Spieler in Euro. Gegebenenfalls wird gerundet. <p>
 7=41-50 Mio. <p>
 8=51-60 Mio. <p>
 9=61 Mio. und höher. <p> 
+  
 <h3>position</h3>
 Position der Profi-Fußballer. Bei Spielern, die mehrere Positionen spielen können, wird deren hauptsächliche Positionsrolle verwendet. Flügelspieler zählen als Angreifer.
 
@@ -106,6 +108,18 @@ Position der Profi-Fußballer. Bei Spielern, die mehrere Positionen spielen kön
 2=Verteidiger <p>
 3=Mittelfeldspieler <p>
 4=Angreifer <p>
+  
+<h3>agency</h3>
+von welchem Spielerberater/von welcher Spielerberateragentur wird der Spieler beraten? 
+
+1= Jorge Mendes (JM) <p>
+2= Jonathan Barnett (JB) <p>
+3=Mino Raiola(MR) <p>
+4= Volker Struth / Sports Total (ST) <p>
+5= Jose Otin / Bahia Internacional  (BI) <p>
+6= Meissa N'Diaye  (MN) <p>
+7= Thomas Kroth / Pro Profil GmbH (PROP) <p>
+
 
 
 <h3>Abkürzungen Spielerberater/-firmen</h3> 
