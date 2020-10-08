@@ -87,6 +87,7 @@ bei doppelter Staatsbürgerschaft wird die erste Nation genommen <p>
 33=Kroatien <p>
 34=Island <p>
 35=Marokko <p>
+36=Irland <p>
   
 <h3>value</h3>
 Marktwert der Spieler in Euro. Gegebenenfalls wird gerundet. <p> 
