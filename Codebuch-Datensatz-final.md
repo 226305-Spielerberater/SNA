@@ -25,7 +25,7 @@ Wir beschränken uns dabei auf die jeweils 20 wertvollsten Spieler nach Marktwer
 
 <h2>Edge-Attribute</h2>
 <h3>relation</h3>
-1=Geschäftsbeziehung zwischen Spielerberater und Fußballprofi <p>
+<p>1=Geschäftsbeziehung zwischen Spielerberater und Fußballprofi </p>
 2=Liga-Beziehung (der Spieler spielt in der Liga) <p>
 3=Vereinsbeziehung (der Spieler spielt in diesem Verein) <p>
 4=Nationalmannschaftsbeziehung (Spieler spielt in Nationalmannschaft: hierbei zählt der Nationalmannschaftskader des jeweiligen Landes von transfermarkt.de im Jahr 2019, da bis Septmeber 2020 wegen Corona wenig bis gar keine Länderspiele stattgefunden haben) <p>
