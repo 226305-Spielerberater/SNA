@@ -38,8 +38,8 @@ Wir beschränken uns dabei auf die jeweils 20 wertvollsten Spieler nach Marktwer
 <h3>type</h3>
 Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten:
 
-0=Personen (Spielerberater, Fußballprofis) <p>
-1=Organisationen(Vereine, Ligen, Nationalmannschaften) <p>
+<p>0=Personen (Spielerberater, Fußballprofis) </p>
+<p>1=Organisationen(Vereine, Ligen, Nationalmannschaften) </p>
 
 <h3>age</h3>
 1=18-21 <p>
@@ -262,26 +262,26 @@ Und wenn ja, von welchem Team? <p>
 9 = Nationalspieler Kolumbien  <p>
 10= Nationalspieler Irland <p>
 11= Nationalspieler England <p>
-12= kroatien <p>
-13= Marokko <p>
-14= Albanien <p>
-15= Wales <p>
-16= Schottland <p>
-17= Uruguay <p>
-18=Polen <p>
-19= Norwegen <p>
-20=Niederlande <p>
-21= Armenien <p>
-22= Zentralafrikanische Republik <p>
-23= Elfenbeinküste <p>
-24= Belgien <p>
-25= Kongo <p>
-26= Luxemburg <p>
-27= Ungarn <p> 
-28= Österreich <p>
-29= Japan <p>
-30= Chile <p>
-31= Venezuela <p>
+12= Nationalspieler Kroatien <p>
+13= Nationalspieler Marokko <p>
+14= Nationalspieler Albanien <p>
+15= Nationalspieler Wales <p>
+16= Nationalspieler Schottland <p>
+17= Nationalspieler Uruguay <p>
+18= Nationalspieler Polen <p>
+19= Nationalspieler Norwegen <p>
+20= Nationalspieler Niederlande <p>
+21= Nationalspieler Armenien <p>
+22= Nationalspieler Zentralafrikanische Republik <p>
+23= Nationalspieler Elfenbeinküste <p>
+24= Nationalspieler Belgien <p>
+25= Nationalspieler Kongo <p>
+26= Nationalspieler Luxemburg <p>
+27= Nationalspieler Ungarn <p> 
+28= Nationalspieler Österreich <p>
+29= Nationalspieler Japan <p>
+30= Nationalspieler Chile <p>
+31= Nationalspieler Venezuela <p>
 
 
 <h2>Abkürzungen</h2>
