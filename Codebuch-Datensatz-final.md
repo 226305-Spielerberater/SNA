@@ -14,7 +14,7 @@ erstellt von Rippler, Volz, Palleit, Jung
 
 Wir haben den Datensatz uber das Portal transfermarkt.de für den Kurs Netzwerkanalyse erhoben. Die Basis bildet ein <a href="https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen">Ranking der erfolgreichsten Spielerberater nach Provisionen im Jahr 2018.</a>
 
-<p>Untersucht werden die Klienten der Spielerberater oder Spielerberaterfiirmen von Jorge Mendes / Gestifute, Jonathan Barnett / Stellar Football Ltd. , Mino Raiola, Volker Struth / Sports Total, Jose Otin / Bahia Internacional, Meissa N'Diaye, Thomas Kroth / Pro Profil GmbH und Fernando Felicevich.</p>
+<p>Untersucht werden die Klienten der Spielerberater oder Spielerberaterfiirmen von Jorge Mendes (Agentur: "Gestifute"), Jonathan Barnett (Agentur: "Stellar Football Ltd."), Mino Raiola, Volker Struth (Agentur: "Sports Total"), Jose Otin (Agentur: "Bahia Internacional"), Meissa N'Diaye, Thomas Kroth (Agentur: "Pro Profil GmbH") und Fernando Felicevich.</p>
 
 <p>Das Netzwerk ist ein gerichtetes two-mode Teilnetzwerk. Es wurden folgende Fragen erhoben: Welche Profifußballer beraten die Spielerberatungsfirmen/Spielerberater? Ist ein Muster erkennbar? Und welche Beziehungen bestehen zwischen den Spielern der einzelnen Spielerberatern?</p>
 Wir beschränken uns dabei auf die jeweils 20 wertvollsten Spieler nach Marktwert in Euro.
