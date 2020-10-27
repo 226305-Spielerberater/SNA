@@ -190,7 +190,7 @@ Bei welchem Verein spielt der Spieler? Stand: Rückrunde Saison 19/20 <p>
 37= LOSC Lille <p>
 38= FC Southampton <p>
 39 = Brighton Holve & Albion <p>
-40= Olympique <p>
+40= Olympique Marseille <p>
 41= AC Florenz <p>
 42= Lazio Rom <p>
 43= Manchester United <p>
@@ -201,7 +201,7 @@ Bei welchem Verein spielt der Spieler? Stand: Rückrunde Saison 19/20 <p>
 48= PSV Eindhoven <p>
 49= AS Rom <p>
 50= AZ Alkmaar <p>
-51= Genua <p>
+51= CFC Genua <p>
 52= Inter Mailand <p>
 53= FC Fulham <p>
 54= TSG 1899 Hoffenheim <p>
