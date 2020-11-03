@@ -38,8 +38,9 @@ Wir beschränken uns dabei auf die jeweils 20 wertvollsten Spieler nach Marktwer
 <h3>type</h3>
 Netzwerk ist ein two-mode-Netzwerk mit zwei Typen von Akteuren/Knoten:
 
-<p>0=Personen (Spielerberater, Fußballprofis) </p>
-<p>1=Organisationen(Vereine, Ligen, Nationalmannschaften) </p>
+<p>0=Personen (Fußballprofis) </p>
+<p>1=Organisationen(Vereine, Ligen, Nationalmannschaften & Spielerberater/firmen) </p>
+<p>Wir ordnen Spielerberater auch zu Organisationen zu, da sie letztendlich als Unternehmen und damit als Organisation handeln. </p>
 
 <h3>age</h3>
 1=18-21 <p>
