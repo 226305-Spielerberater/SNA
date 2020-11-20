@@ -1,0 +1,2143 @@
+---
+title: "226305 Forschungsbericht"
+subtitle: "Analyse des Netzwerks von Spielerberatern"
+date: "Sommersemester 2020"
+author: "Antonio Jung | aj037@hdm-stuttgart.de", "Kevin Rippler" | "kr052@hdm-stuttgart.de" , "Valentin Palleit" | "vp027@hdm-stuttgart.de" , "Johannes Volz" | "jv040@hdm-stuttgart.de"
+output: html_notebook
+---
+
+
+
+
+### Forschungsbericht SNA 5 Spielerberater
+
+
+# 1. Einleitung
+Sie gehören zu den mächtigsten Männern im Weltfußball: Erfolgreiche Spielerberater wie Mino Raiola oder Jorge Mendez. Sie verdienen Millionen! Aber was macht einen Spielerberater erst erfolgreich? Welche Strategien verfolgt er? Was ist sein USP? Wie platziert er sich am Markt? Um das herauszufinden untersuchen wir die acht erfolgreichsten Akteure aus der Branche. Es handelt sich um jene Spielerberater, die 2018 laut des Sportmagazins RAN die höchsten Provisionen kassiert haben. Um Rückschlüsse über ihre strategischen Ansätze ziehen zu können, analysieren wir ihre Top 20 Klienten nach Marktwert und stellen sie gegenüber. Uns interessiert besonders, welche Muster sich erkennen lassen: Gibt es besonders Zentrale Akteure? Welche Rolle spielt die Sprache/Nationalität? Welcher Spielertyp wird präferiert? In welcher Liga spielen die Besten und teuersten Spieler? Wer setzt auf Talente? Wer arbeitet mit gestandenen Stars? Und welche Erkenntnisse liefert uns das Netzwerk, die wir noch gar nicht auf dem Schirm haben?
+Diese Fragen wollen wir mit Hilfe unseres gerichteten two-mode Teilnetzwerkes beantworten.  
+
+Forschungsfrage: Analyse der strategischen Vorgehensweisen von den acht kommerziell erfolgreichsten Spielerberatern des Jahres 2018
+
+
+
+# 1.1 Vorarbeiten und vergleichbare Studien
+## 1.1.1 Forschungsstand
+
+Die Faszination der Menschen mehr über die Männer im Hintergrund des Fußballs zu erfahren, zeigt sich in vielen Zeitungsberichten, Büchern und Filmen. Viele der Bücher und Berichte beschäftigen sich mit den Geschichten einzelner Transfers. Einen weiteren Teil nehmen Berichte über die letzten Skandale rund um Spielerberater ein. Ein Beispiel sind hier die ersten Football Lecks Veröffentlichungen. In diesem wurde aufgedeckt, wie Spielerberater durch dubiose Konten versuchen die Steuerlast ihrer Klienten zu mildern. Des Weiteren wurde ein Netzwerke bekannt, in welchen Spielerberater Spieler aus den baltischen Staaten erst an Clubs transferierten, an welchen sie selbst Beteiligungen hatten. Diese Spieler wurden dann nach einigen Tagen, ohne eine Sekunde Spielzeit, an Clubs im Westen weiterverkauft. (Buschmann, Wulzinger. 2017)
+
+Eine Forschung, welche explizit die Netzwerke der Spielerberater untersucht, ließ sich von uns nicht finden. Hier sehen wir eine Forschungslücke, die wir mit unserer Netzwerkanalyse gerne schließen würden. 
+
+Für uns von Bedeutung sind die Forschungsergebnisse von Carrieri, Principe und Raitano. Diese untersuchten in ihrem Paper: „What makes you ‚super-rich’? New evidence from an analysis of football players' earnings“ welche Einflüsse die drei Faktoren: Leistung, Macht und Popularität darauf haben, ob Fussballer in den Bereich des „Super-Verdienstes“ vorstoßen können. Dabei fanden sie heraus, dass sich die Popularität am stärksten auf den Verdienst von Fußballern auswirkt. Ein weiterer wichtiger Punkt ist die Macht eines Spielerberaters einen Spieler in einem finanzstarken Team unterzubringen. Die Studie stellt damit in Frage, dass „Super-Verdienste“ nur von sehr talentierten Spielern erzielt werden können. (Carrieri, Principe, Raitano. 2017)  Die Macht von Spielerberaten hat also in manchen Fällen einen größeren Einfluss auf die Bezahlung der Fußballprofis als das Talent. 
+
+In unserer Netzwerkanalyse geht es nun darum herauszufinden, wie Spielerberater diese Macht aufbauen können. Welche Strategien in der Auswahl ihrer Spieler wenden die von uns untersuchten Spielerberater an, welche sie zu den erfolgreichsten ihrer Branche im Jahr 2018 machten? 
+
+
+
+
+
+
+## 1.1.2 Arbeitshypothesen
+Wir gehen von folgenden Arbeitshypothesen aus:
+a) Ligazugehörigkeit: Die meisten Spieler der nach Provisionen erfolgreichsten Spielerberater 2018 werden in den europaäischen Top-Ligen spielen, da dort insgesamt hohe Gehälter und damit auch viel Geld für Spielerberaterprovisionen gezahlt werden.
+
+
+b) Muster von Spielerberatern: Welche Spieler die Spielerberater betreuen, hängt auch von ihrer Nationalität ab. Wir vermuten, dass etwa deutsche Spielerberater vermehrt deutsche Spieler unter Vertrag haben werden. Gleichzeitig vermuten wir, dass auch für die Spieler wichtig ist, einen Spielerberater zu haben, der dieselbe Muttersprache wie sie spricht. Die Homophilie könnte hier also eine große Rolle spielen.
+
+Ansonsten hat die Analyse einen überwiegend explorativen Charakter.
+
+# 2. Datenerhebung: Zugang, Bereinigung und Codebuch
+
+##2.1  Zugang
+Die Spielerdaten für die Analyse wurden über das Fußballportal transfermarkt.de erhoben. Als Grundlage hierfür dient das RAN Ranking der acht erfolgreichsten Spielerberater des Jahres 2018.  Konkret untersucht werden die Top 20 Spieler nach Marktwert von folgenden Spielerberatern/Spielerberaterfirmen: Jorge Mendes, Jonathan Barnett, Mino Raiola, Volker Struth / Sports Total, Jose Otin / Bahia Internacional, Meissa N'Diaye, Thomas Kroth / Pro Profil GmbH, Fernando Felicevich. 
+
+Ranking: https://www.ran.de/fussball/bildergalerien/top-8-diese-spielerberater-kassierten-2018-die-hoechsten-provisionen
+
+Ausgangslage für die Datenerhebung ist die Rückrunde der Saison 19/20.
+
+
+## 2.2 Bereinigung
+
+Bereinigung des Datensatzes. Da unser Netzwerk sehr groß ist, wurden alle Knoten mit weniger als drei Degrees übersichtshalber gelöscht. Da jeder Spieler mindestens drei Beziehungen eingeht (Verein, Liga, Berater), fallen darunter dann nur Ligen, Vereine oder Nationalmannschaften, die für unsere Forschung keine große Relevanz haben. Das bereinigte  iGraph-Objekt heißt "s_sim_final".
+
+## 2.3 Codebuch
+Das [Codebuch](https://github.com/226305-Spielerberater/SNA_5/blob/master/Codebuch-Datensatz-final.md) beschreibt die Variablen, Relationen und Attribute des Netzwerks und ist ebenfalls auf Github hinterlegt. Hier werden die Beziehungsdaten zwischen Spieler und Berater sowie die Beziehungen unter den einzelnen Spielern erhoben. So erhoffen wir uns Rückschlüsse auf die strategische Ausrichtung des Beraters. 
+Wir untersuchen Alter, Nationalität, Marktwert, Position, Agenturzugehörigkeit, Liga, Club und Nationalmannschaftskarriere jedes einzelnen Spielers. Das daraus resultierende Gesamtnetzwerk und vor allem die entsprechenden Teilnetzwerke lassen sich auf Strategien untersuchen und stellen diese visuell dar. 
+
+
+# 3. Analyse und Interpretation
+
+# 4. Das Gesamtnetzwerk
+
+Das Gesamtnetzwerk umfasst 315 Knoten und 1017 Beziehungen (siehe igraph-Objekt). Es ist ein gerichtetes Two-Mode-Teilnetzwerk und nicht gewichtet. 
+
+
+
+
+```{r Gesamnetzwerk erstellen, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+
+
+
+library(igraph)
+#Erstellt das Netzwerk aus ihren Edge- und Nodelists. Nicht vergessen, dass der Pfad auf Github nur funktioniert, wenn die Rohdaten (raw) eingelesen werden.
+
+
+# Einlesen der Edge- und Nodelist
+el <- read.csv("https://raw.githubusercontent.com/226305-Spielerberater/SNA_5/master/Edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/226305-Spielerberater/SNA_5/master/Nodes.csv", header=T, as.is=T, sep = ",")
+
+# Matrix erstellen
+edgematrix <-as.matrix(el)
+
+#Zusammenführen von Edge- und Nodelist als igraph-Objekt
+
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+
+s
+#Netzwerk s hat 315 Nodes und 1017 Edges
+
+
+# besteht das Netzwerk aus Komponenten?
+# wenn ja, wie vielen?
+is.connected(s)
+components(s)
+
+#=> das Netzwerk besteht nicht aus verschiedenen Komponenten, sondern nur aus einer
+
+# Dichte des Netzwerks
+edge_density(s, loops=FALSE)
+
+# Pfaddistanzen (Distance)
+farthest_vertices(s)
+
+```
+
+Das Hauptnetzwerk besteht aus einer Komponente. Die Dichte im Netzwerk beträgt 1 Prozent von allen möglichen Verbindungen. Das war aber zu erwarten, da wir bei den Spielern nur die einzelnen Beziehungen der Spieler eines Spielerberaters untereinander untersuchen. Aus diesem Grund haben beispielsweise Spieler von Berater A keine Beziehungen zum Beraternetzwerk von Berater B.
+Die maximale Pfaddistanz beträgt 5 Schritte.
+
+
+
+```{r Einfache Visualisierung des erstellten Objekts, fig.height=12, fig.width=16, message=TRUE, warning=TRUE, paged.print=TRUE}
+
+
+#stelle alle Knoten, die als Personen (Fußballspieler) fungieren (type = 0), als Kreis dar und gib ihnen die Farbe grau
+
+#stelle alle Knoten, die als Organisationen fungieren (type = 1), als Quadrat dar und gib ihnen die Farbe rot
+
+
+
+V(s)[V(s)$type == 0]$shape <- "circle"  
+V(s)[V(s)$type == 1]$shape <- "square"
+V(s)[V(s)$type == 0]$color <- "grey40"
+V(s)[V(s)$type == 1]$color <- "red"
+
+
+
+
+plot(s,
+     asp=0, 
+     layout=layout_with_graphopt,
+     vertex.size=degree(s)/7,
+     edge.arrow.size=.3,
+     edge.color="orange",
+     edge.curved=curve_multiple(s)
+)
+
+s
+```
+
+```{r Netzwerk vereinfachen und auf die wichtigsten Knoten reduzieren, fig.height=12, fig.width=16}
+
+#unser Netzwerk ist sehr groß und unübersichtlich
+
+#da unser Netzwerk aber aus einer Komponenten besteht, gibt es keine isolierten Knoten
+
+#es gibt aber Knoten (z.B. die Ligen), die nur eine Beziehung haben, weil nur ein Spieler in der jeweiligen Liga spielt
+
+#wir löschen deshalb zunächst nur diese Knoten
+
+# lösche alle Knoten aus Netzwerk s mit dem degree Wert von 1
+
+s_sim <- delete.vertices(s, which(degree(s)==1))
+
+s_sim
+
+#Netzwerk hat jetzt statt 315 Knoten und  1017 Edges nur noch vs 236 Knoten und 938 Edges
+
+#aber: Netzwerk immer noch sehr groß
+
+#deshalb: noch mehr Nodes löschen
+
+#jeder Spieler in unserem Netzwerk hat mindestens 3 Beziehungen: zum Verein, zur Liga und zum Spielerberater
+
+#wenn wir jetzt also alle Knoten löschen, die weniger als 3 degrees haben. dann löschen wir keine Spieler, sondern nur Vereine oder Ligen, in denen nicht mehr als zwei Spieler spielen
+
+#das heißt: wir beschränken unser Netzwerk auf die wichtigsten Akteure (die, die mindestens 3 degreees haben)
+
+#lösche alle Knoten aus Netzwerk s, deren degree kleiner als 3 ist
+
+s_sim_final <- delete.vertices(s, which(degree(s)<3))
+
+s_sim_final
+
+#das vereinfachte Netzwerk hat jetzt nur noch 207 Nodes und 880 Edges
+
+
+
+
+```
+
+
+
+
+
+
+```{r Visualisierung vereinfachtes Netzwerk, fig.height=12, fig.width=16}
+
+V(s_sim_final)[V(s_sim_final)$type == 0]$shape <- "circle"  
+V(s_sim_final)[V(s_sim_final)$type == 1]$shape <- "square"
+V(s_sim_final)[V(s_sim_final)$type == 0]$color <- "grey40"
+V(s_sim_final)[V(s_sim_final)$type == 1]$color <- "red"
+
+
+
+
+plot(s_sim_final,
+     asp=0, 
+     layout=layout_with_graphopt,
+     vertex.size=degree(s_sim_final)/7,
+     vertex.label.degree=0,
+     edge.arrow.size=.3,
+     edge.arrow.curved=.8,
+     edge.label.family="Helvetica",
+     edge.color="orange",
+     edge.curved=curve_multiple(s_sim_final),
+     main=" Visualisierung vereinfachtes Netzwerk")
+
+
+
+```
+
+Wenn man die Knotengröße in Abhängigkeit ihrer Degrees macht, fällt auf, dass die Knoten von der Bundesliga, der ersten englischen Liga (BPL) und der spanischen Liga (BBVA) am größten sind. 
+
+
+
+# kurze Analyse des Gesamtnetzwerks (Cliquen)
+
+```{r kurze Analyse des vereinfachten Gesamtnetzwerks}
+
+s_indegree <- degree(s_sim_final, mode="in")
+s_indegree
+#Bundesliga hat mit 38 die meisten indegrees => Bundesliga populär bei Spielern und deren Beratern, da indegree = Popularitätsmaß
+
+s_outdegree  <- degree(s_sim_final, mode="out")
+s_outdegree
+
+#Neves, Jota, Podence jeweils 17
+
+
+#berechne mittlere Pfaddistanz und behandle die gerichteten Kanten wie ungerichtete
+mean_distance(s_sim_final, directed = FALSE) 
+# man braucht im Durchschnitt gerundet vier Pfade, um von Knoten A nach B zu gelangen
+
+#wie viele echte Cliquen gibt es? (Typ 003)
+triad_census(s_sim_final)
+# es gibt 457 echte Cliquen in unserem vereinfachten Netzwerk => ganz schön viele => einige Spieler innerhalb eines Spielerberaters scheinen also gute Verbindungen zueinander zu haben
+
+
+```
+
+
+
+
+
+
+```{r 2 Übersicht Netzwerkattribute}
+list.vertex.attributes(s)
+# vertex.attributes(s)
+list.edge.attributes(s)
+# edge.attributes(s)
+
+```
+
+Das Netzwerk hat  folgende Attribute:
+
+*Vertex-Attribute*
+-id: Name des Knotens
+- type: Personen (Fußballspieler) = 0, Organisationen (Vereine, Nationalmannschaften, Ligen & Spielerberater/-agenturen) = 1
+- nation: Nationalität des Knotens, codiert von 1 bis 36
+- age: Alter des Spielers 1 = 18-21, 2= 22-25, 3= 26-29, 40=30-33, 5=34 und älter
+- value: Marktwert des Spielers in Millionen Euro: 1= unter 1 Mio, 2= 1-5 Mio., 3= 6-10 Mio., 4=11-20 Mio, 5= 21-30 Mio., 6= 31-40 Mio., 7= 41-50 Mio., 8= 51-60 Mio., 9= 61 Mio. und höher
+- position: auf welcher Position spielt der Spieler? 1= Torwart, 2= Verteidiger, 3= Mittelfeld, 4= Angriff
+- agency: von welchem Berater lässt sich der Spieler beraten? 1= Jorge Mendes (JM), 2= Jonathan Barnett (JB), 3=Mino Raiola(MR), 4= Volker Struth / Sports Total (ST), 5= Jose Otin / Bahia Internacional  (BI), 6= Meissa N'Diaye  (MN), 7= Thomas Kroth / Pro Profil GmbH (PROP), 8= Fernando Felicevich (FF)
+- club: bei welchem Verein spielt der Spieler?, codiert von 1 bis 94
+- league: in welcher Liga spielt der Spieler?, codiert von 1 bis 21
+-international: Ist der Spieler aktueller Nationalspieler? (Stand: Nationalmannschaftskader 2019) Und wenn ja, von welchem Team?, codiert von 0 bis 31
+
+
+Die Vertex-Attribute sind nicht für alle Knoten angegeben. Spielerberater, Vereine, Ligen und Nationalmannschaften haben jeweils bis auf das Attribut Type die Angabe "NA" bzw. "99".  
+
+Die gesetzten Werte der Attribute lassen sich durch die Selektion des entsprechenden Attributes auslesen.
+
+```{r 2 Auslesen von Attributen }
+
+#Übersicht Edge- und Node-Attribute
+list.vertex.attributes(s)
+list.edge.attributes(s)
+
+#zeige mir Werte von Edge-Attribut relation an 
+edge.attributes(s)$relation
+```
+
+*Edge-Attribute*
+
+- relation: 1=Geschäftsbeziehung zwischen Spielerberater und Fußballprofi, 2=Liga-Beziehung (der Spieler spielt in der Liga), 3=Vereinsbeziehung (der Spieler spielt in diesem Verein, 4=Nationalmannschaftsbeziehung (Spieler spielt in Nationalmannschaft: hierbei zählt der Nationalmannschaftskader des jeweiligen Landes von transfermarkt.de im Jahr 2019, da bis Septmeber 2020 wegen Corona wenig bis gar keine Länderspiele stattgefunden haben), 5=Teamkollegen im Verein (zwei Spieler des selben Spielerberaters spielen im selben Verein), 6=Teamkollegen in der Nationalmannschaft (zwei Spieler des selben Spielerberaters spielen in der gleichen Nationalmannschaft) 
+
+relation 5 und 6 wurden nur für Beziehungen innerhalb des Netzwerks eines Spielerberaters erhoben, d.h. in unserem Netzwerk haben zwei Spieler von Bayern mit verschiedenen Spielerberatern keine relation=5, aber wenn sie den gleichen Spielerberater haben schon. Der Grund: Uns interessiert das Muster von den Spielerberatern, daher sind die Beziehungen der Spieler untereinander für uns nur innerhalb der Netzwerke der jeweiligen Spielerberater interesssant, um zu analysieren, wie dicht die einzelnen Netzwerke der Spielerberater sind und ob sie beispielsweise mehrere Spieler eines Clubs oder einer Nationalmannschaft beraten.
+
+Dadurch hat jeder Spieler mindestens 3 Beziehungen (eine zum Spielerberater, eine zum Verein und eine zur Liga). Spieler, die innerhalb des Spielerberaters viele Mitspieler aus Verein oder Nationalmannschaft haben, können aber viel mehr als drei Beziehungen eingehen.
+
+
+
+Das bedeutet, dass es folgende Teilnetzwerke aufgrund der Edge-Attribute gibt:
+
+
+Das Netzwerk besteht aus sechs Beziehungsarten: 
+
+1) Geschäftsbeziehung (business) 
+2)Ligabeziehung (league)  
+3)Vereinsbeziehung (club) 
+4)Nationalmannschaftsbeziehung (international)
+5)Vereinskollegenbeziehung (clubmates) 6)Nationalmannschaftskollegenbeziehung (internationalmates) 
+
+
+## 4.2 Analyse der Teilnetzwerke 
+
+### 4.2.1 Teilnetzwerke nach Beziehungsart (Edge-Attribute)
+
+Das Netzwerk besteht aus sechs Beziehungsarten: Geschäftsbeziehung (business), Ligabeziehung (league), Vereinsbeziehung (club), Nationalmannschaftsbeziehung (international), Vereinskollegenbeziehung (clubmates) und Nationalmannschaftskollegenbeziehung (internationalmates).
+
+Die Teilnetzwerke sind nicht gewichtet. 
+
+
+
+
+
+
+```{r Teilnetzwerke erstellen und vereinfachn, fig.height=12, fig.width=16}
+
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+el <- read.csv("https://raw.githubusercontent.com/226305-Spielerberater/SNA_5/master/Edges.csv", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/226305-Spielerberater/SNA_5/master/Nodes.csv", header=T, as.is=T, sep = ",")
+edgematrix <-as.matrix(el)
+s <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=T)
+
+list.edge.attributes(s)
+
+#erstelle Teilnetzwerke nach Edge-Attribut relation
+business <- subgraph.edges(s, E(s)[relation==1])
+League <- subgraph.edges(s, E(s)[relation==2])
+Club <- subgraph.edges(s, E(s)[relation==3])
+International <- subgraph.edges(s, E(s)[relation==4]) 
+clubmates <- subgraph.edges(s, E(s)[relation==5]) 
+internationalmates <- subgraph.edges(s, E(s)[relation==6])
+
+
+
+business
+League
+Club
+International
+clubmates
+internationalmates
+
+
+```
+
+
+
+### 4.2.1.1 Teilnetzwerk Geschäftsbeziehung
+
+```{r Visualisierung Teilnetzwerk business, fig.height=12, fig.width=16}
+
+#zeige alle Knoten des Netzwerks s mit type = 0 (=Personen) als Quadrat an 
+V(business)[V(business)$type == 0]$shape <- "square" 
+
+#zeige alle Knoten mit type = 1 (=Organisationen) als Kreis an 
+V(business)[V(business)$type == 1]$shape <- "circle"
+
+#gib allen Knoten mit type = 0 die Farbe grau40
+V(business)[V(business)$type == 0]$color <- "grey40"
+
+#gib allen Knoten mit type=1 die Farbe rot
+V(business)[V(business)$type == 1]$color <- "red"
+
+plot(business,
+     asp=0,
+     vertex.size=5,
+     edge.color="orange",
+     edge.arrow.size=.3, 
+     layout=layout_nicely,
+     main="Geschäftsbeziehung")
+
+
+
+
+```
+
+Übersicht welcher Spieler bei welchem Spielerberater unter Vertrag steht
+
+
+### 4.2.1.2 Teilnetzwerk Ligabeziehung
+
+```{r Visualisierung Teilnetzwerk league, fig.height=12, fig.width=16}
+
+aleague
+
+
+V(League)[V(League)$type == 0]$shape <- "circle"  
+V(League)[V(League)$type == 1]$shape <- "square"
+V(League)[V(League)$type == 0]$color <- "grey40"
+V(League)[V(League)$type == 1]$color <- "red"
+
+
+
+
+plot(League,
+     asp=0,
+     vertex.size=5,
+     edge.color="orange",
+     edge.arrow.size=.3,
+     layout=layout_nicely,
+     edge.curved=curve_multiple(league),
+     main="Ligabeziehung")
+
+
+
+```
+
+Die einzelnen Ligen mit ihren jeweiligen Spielern bilden die Komponenten des Teilnetzwerks.
+
+
+```{r Analyse Teilnetzwerk League, fig.height=12, fig.width=16}
+
+#aus wie vielen Komponenten besteht das Netzwerk?
+
+co_league <- components(League)
+
+co_league
+
+#Netzwerk besteht aus 22 Komponenten = 22 versch. Ligen, in der die Spieler spielen
+
+#wie viele Verbindungen haben die Ligen? wie populär sind sie?
+
+league_degree <- degree(League, mode="in")
+league_degree
+#die Bundesliga hat mit 38 die meisten degrees
+
+#Analyse der Cluster
+
+league_cl_walktrap <- cluster_walktrap(League)
+
+league_cl_walktrap
+
+plot(league_cl_walktrap, league, asp=0, edge.arrow.size=.2, vertex.size=5, main="Clusteranalyse des Netzwerk Leagues")
+
+#wie zu erwarten bildet jede Liga jeweils eng verbundene Knoten (Cluster)
+
+```
+
+Die Spieler der Top 8 erfolgreichsten Spielerberater nach Provision aus dem Jahr 2018 spielten zur Rückrunde der Saison 19/20 in 22 verschiedenen Ligen auf der ganzen Welt.
+
+Wenn man untersuchen möchte, welche Ligen populär sind, muss man sich die indegrees der einzelnen Ligen anschauen, da indegrees das Maß für die Popularität eines Knotens sind. 
+
+Auffällig ist, dass die meisten Spieler der erfolgreichsten Spielerberater in den europäischen Spitzenligen des Fußballs spielen. Auf Platz eins ist wie bereits erwähnt die deutsche Bundesliga mit 38 Spielern, efolgt von der englischen Liga (31), der spanischen Liga (24) und der italienischen Liga (17). Unsere Vermutung, dass die Spieler der erfolgreichsten Spielerberater 2018 zum Großteil bei den europäischen Spitzenclubs spielen, wurde also bestätigt.
+
+
+
+Mit 38 indegrees ist die Bundesliga also die populärste Liga. In Deutschlands höchster Spielklasse spielten zur Rückrunde der Saison 19/20 somit die meisten Spieler. 
+
+Dass die Bundesliga damit die erste englische Liga (Barclays Premier League; kurz: BPL) hinter sich lässt, ist dann doch etwas überraschend, da es oft heißt, die Bundesliga hinke der englischen Liga in Sachen Attraktivität mittlerweile deutlich hinterher. Eigentlich merkwürdig, weil von den die Premier League die finanzstärkste Liga aller europäischen Spitzenligen ist. Ein Beispiel: Die Premier League hat im Jahr 2019 allein fünf mal so viel Geld durch die Auslandsvermarktung eingenommen wie die Bundesliga (Klemm, 2019).
+
+
+Und da, wo am meisten Geld im Spiel ist, lässt sich für die Spielerberater auch mehr Geld in Form von Provisionen verdienen - worauf das RAN-Ranking ja auch beruht.
+
+Ein Grund, warum die Bundesliga die meisten Spieler hat, könnte aber auch sein, dass gleich zwei der  acht Spielerberater Deutsche sind. Wir finden hier ein erstes Zeichen, dass Homophilie bei der Entscheidung, welcher Spielerberater welchen Spieler berät, eine Rolle spielen könnte.
+
+Das wollen wir uns im folgenden etwas genauer anschauen.
+
+
+### 4.2.1.2.1 Ego-Netzwerk Bundesliga
+
+
+```{r Visualisierung Egonetzwerk Bundesliga zweiter Ordnung, fig.height=12, fig.width=16}
+
+#erstelle Ego-Netzwerk der Bundesliga zweiter Ordnung
+buli <- make_ego_graph(s, order = 2, nodes = V(s)$name == "Bundesliga", mode ="all")
+buli
+buli1 <- buli[[1]]
+buli1
+
+
+#alle Spieler (type=0) sollen als Kreis und in grau dargestellt werden, alle Organisationen (type=1) sollen als Quadrat und in Rot dargestellt werden
+
+V(buli1)[V(buli1)$type == 0]$shape <- "circle"  
+V(buli1)[V(buli1)$type == 1]$shape <- "square"
+V(buli1)[V(buli1)$type == 0]$color <- "grey40"
+V(buli1)[V(buli1)$type == 1]$color <- "red"
+
+#Egonetzwerk Bundesliga ploten
+
+
+plot(buli1,
+     asp=0,
+     layout=layout_nicely,
+     vertex.size=degree(buli1)/7,
+     edge.arrow.size=.3,
+     edge.color="orange",
+     edge.curved=curve_multiple(buli1),
+     main="Ego-Netzwerk Bundesliga zweiter Ordnung")
+
+
+
+
+```
+
+Wenn man das Ego-Netzwerk zweiten Grades plotet und dabei die Knotengröße in Abhängigkeit ihrer Degrees innerhalb des Ego-Netzwerks macht, fällt folgendes auf: Von den Spielerberatern stechen die Knoten ST und PROP hervor. Beides sind eben jene zwei der acht deutschen Berateragenturen in unserem Netzwerk. Hier zeigt sich auch eine Art der Homophilie: deutsche Spielerberater haben vermehrt Klienten, die in der Bundesliga spielen. Ob diese Spieler bereits zum Zeitpunkt der Beratung in der Bundesliga gespielt haben oder ob diese deutsche Agenturen ihre Spieler überhaupt erst in die Bundesliga transferierten, können unsere Daten aber nicht beantworten.
+
+
+```{r Visualisierung Egonetzwerk Bundesliga erster Ordnung, fig.height=14, fig.width=20}
+
+#erstelle Ego-Netzwerk der Bundesliga erster Ordnung
+bulineu <- make_ego_graph(s, order = 1, nodes = V(s)$name == "Bundesliga", mode ="all")
+bulineu
+
+bulineu1 <- bulineu[[1]]
+
+bulineu1
+
+#Blick ins Codebuch:
+#agency=4: deutsche Agentur Sports Total (ST)
+#agency=7: deutsche Agentur Pro Profil GmbH (PROP)
+
+#gib allen Knoten mit agency=4 und agency=7 die Farbe gelb
+V(bulineu1)[V(bulineu1)$agency == 4]$color <- "yellow"
+V(bulineu1)[V(bulineu1)$agency == 7]$color <- "yellow"
+
+#gib Knoten untersch. Form in Abhängigkeit von Type-Attribut
+V(bulineu1)[V(bulineu1)$type == 0]$shape <- "circle"  
+V(bulineu1)[V(bulineu1)$type == 1]$shape <- "square"
+
+
+bulineu1
+
+
+plot(bulineu1,
+     asp=0,
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     edge.color="orange",
+     edge.curved=curve_multiple(bulineu1),
+     main="Ego-Netzwerk Bundesliga erster Ordnung",
+     sub="mit Spielern deutscher Berater in gelb")
+```
+
+
+Hier wird deutlich, dass 29 der 38 Bundesligaspieler (Stand: Rückrunde Saison 19/20) deutsche Spielerberater haben.
+
+
+```{r Analyse Egonetzwerk Bundesliga erster Ordnung, fig.height=12, fig.width=16}
+
+bulineu1
+
+#agency=4: deutsche Agentur Sports Total (ST)
+#agency=7: deutsche Agentur Pro Profil GmbH (PROP)
+
+
+#lösche alle Knoten aus dem Egonetzwerk erster Ordnung der Bundesliga, die nicht bei deutschen Spielerberatern unter Vertrag stehen 
+
+ger_buli <- delete_vertices(bulineu1, V(bulineu1)[agency==1])
+ger_buli_a <- delete_vertices(ger_buli, V(ger_buli)[agency==2])
+ger_buli_b <- delete_vertices(ger_buli_a, V(ger_buli_a)[agency==3])
+ger_buli_c <- delete_vertices(ger_buli_b, V(ger_buli_b)[agency==5])
+ger_buli_d <- delete_vertices(ger_buli_c, V(ger_buli_c)[agency==6])
+ger_buli_final <- delete_vertices(ger_buli_d, V(ger_buli_d)[agency==8])
+
+ger_buli_final
+
+plot(ger_buli_final,
+     asp=0,
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     main="Egonetzwerk Bundesliga nur Spieler deutscher Spielerberater")
+
+```
+
+Das Egonetzwerk der Bundesliga erster Ordnung mit allen Spielern (bulineu1)hat 39 Knoten, d.h. 38 Spieler (da Bundesliga auch ein Knoten ist)
+
+Zum Vergleich: Das Ego-Netzwerk der Bundesliga mit ausschließlich Spielern deutscher Spielerberater (ger_buli_final) hat 30 Knoten, also 29 Spieler.
+
+Das heißt also, dass 29 der 38 Spieler aus der Bundesliga deutsche Spielerberater haben! Mehr als drei Viertel (76,3%) aller Bundesliga-Spieler aus unserem Netzwerk s haben damit einen deutschen Spielerberater oder eine deutsche Spielerberateragentur. 
+
+Hier wird die Homophilie deutlich: Offenbar bevorzugen es deutsche Spielerberater, viele Spieler unter Vertrag zu haben, die in der Bundesliga spielen - oder sie transferieren ihre Klienten erst in die Bundesliga. 
+
+
+
+
+### 4.2.1.3 Teilnetzwerk Vereinsbeziehung
+
+
+
+```{r Visualisierung Teilnetzwerk club, fig.height=12, fig.width=16}
+
+
+V(Club)[V(Club)$type == 0]$shape <- "circle"  
+V(Club)[V(Club)$type == 1]$shape <- "square"
+V(Club)[V(Club)$type == 0]$color <- "grey40"
+V(Club)[V(Club)$type == 1]$color <- "red"
+
+
+plot(Club,
+     asp=0,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     edge.color="orange",
+     layout=layout_nicely,
+     main="Vereinsbeziehung")
+
+```
+
+Übersicht über die Vereinsbeziehungen
+
+
+
+
+```{r Analyse Teilnetzwerk club}
+#wie viele Komponenten hat das Teilnetzwerk club?
+co_club <- components(Club)
+
+co_club
+
+membership(co_club)
+#Teilnetzwerk league hat 94 Komponenten, also spielen die Spieler unserer Spielerberater in 94 unterschiedlichen Vereinen
+
+
+#berechne degree von club
+
+club_degree <- degree(Club)
+club_degree
+
+#die Werte zeigen uns, wie viele Spieler bei den jeweiligen Vereinen spielen
+```
+Die Spieler der erfolgreichsten Spielerberater 2018 spielten zur Rückrunde 19/20 bei 94 Vereinen. Bei den Wolverhampton Wanderers, RB Leipzig und Eintracht Frankfurt spielten mit jeweils fünf Sielern die meisten Spieler. Was auffällt: Erst danach kommen die Top-Clubs wie Manchester City, FC Chelsea, Real Madrid und Manchester United mit jeweils vier Spielern.
+
+Interessant ist, dass die meisten Spieler damit allesamt nicht bei europäischen Spitzenclubs spielen, sondern mit Ausnahme von RB Leipzig bei Clubs, die höchstens in der Euro-League spielen. (Stand: Rückrunde Saison 19/20)
+
+Dass gleich fünf Spieler bei den Wolverhampton Wanderers spielen, wird später bei der Analyse eines Spielerberaters eine wichtige Rolle spielen.
+
+### 4.2.1.4 Teilnetzwerk Nationalspieler
+
+```{r Visualisierung Teilnetzwerk International, fig.height=12, fig.width=16}
+
+V(International)[V(International)$type == 0]$shape <- "circle"  
+V(International)[V(International)$type == 1]$shape <- "square"
+V(International)[V(International)$type == 0]$color <- "grey40"
+V(International)[V(International)$type == 1]$color <- "red"
+
+
+plot(International,
+     asp=0,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     edge.color="orange",
+     layout=layout_nicely,
+     main="Vereinsbeziehung")
+
+```
+
+```{r Analyse Teilnetzwerk Nationalspieler}
+
+International
+#115 Knoten, 84 Edges
+
+#wie viele Komponenten hat Netzwerk?
+co_international <- components(International)
+co_international
+
+#Netzwerk hat 31 Komponenten, d.h. die Nationalspieler unserer Spielerberater spielen in 31 verschiedenen Nationalmannschaften. 
+
+
+#wie viele Spieler spielen in den jeweiligen Nationalmannschaften? => Indegrees berechnen 
+international_deg <- degree(International, mode="in")
+international_deg
+
+#Portugal: 11
+#Chile: 11
+#Deutschland: 8
+#England: 5
+#Niederlande: 5
+#Italien: 4
+#Spanien: 4
+#Japan: 3
+#Luxemburg 3
+
+
+which.max(international_deg)
+
+#Portugal viele Beziehungen => Mendes
+```
+
+Das Teilnetzwerk International hat 115 Knoten und 84 Edges. In 31 Nationalmannschaften spielten die Spieler der erfolgreichsten Spielerberater 2018, wenn man die Nationalmannschaftskader vom Stand 2019 berücksichtigt.
+
+Zieht man von den 115 Knoten die 34 Ligen ab, dann sieht man: Von 160 Spielern unserer Spielerberater waren 84 Nationalspieler. Das sind 52,5 Prozent. Es ist also durchaus so, dass es erfolgreiche Spielerberater auszeichnet, einige Nationalspieler in ihren Reihen zu haben. 
+
+Wir vermuten ähnlich wie bei der Ligazugehörigkeit, dass ein Großteil der Spieler bei europäischen Nationalmannschaften spielt, da diese zu den stärksten Nationalmannschaften weltweit gehören (die letzten vier Weltmeister waren Frankreich, Deutschland, Spanien und Italien) - und erfolgreiche Spielerberater werden vermutlich auch vermehrt erfolgreiche Fußballspieler beraten.
+
+Und tatsächlich kommen vier der Top fünf Nationalmannschaften nach Spieler-Anzahl aus Europa. Bei der portugiesischen Nationalmannschaft spielen 11 Spieler, bei Deutschland 8, bei England 5 und bei den Niederlanden 4. 
+
+
+Ein wenig aus der Reihe fällt Chile: Gemeinsam mit Portugal teilt sich das Land Platz eins mit 11 Spielern. Das hat auch einen Grund: Ein Spielerberater berät nämlich besonders viele chilenische Nationalspieler. Und bei Portugal genauso: auch hier ist es vor allem ein Spielerberater, der vermehrt auf portugiesische Nationalspieler setzt. Dass Portugal mit 19 Degrees die meisten hat, ist ein weiterer Hinweis darauf, dass einige Spieler des selben Spielerberaters in der portugiesischen Nationalmannschaft spielen. 
+
+
+### 4.2.1.5 Teilnetzwerk Vereinskollegen
+
+```{r Visualisierung Teilnetzwerk clubmates, fig.height=12, fig.width=16}
+
+#gib den Spielern verschiedene Farben in Abhängigkeit ihres Beraters
+
+V(clubmates)[V(clubmates)$agency == 1]$color <- "yellow"
+V(clubmates)[V(clubmates)$agency == 2]$color <- "red"
+V(clubmates)[V(clubmates)$agency == 3]$color <- "green"
+V(clubmates)[V(clubmates)$agency == 4]$color <- "blue"
+V(clubmates)[V(clubmates)$agency == 5]$color <- "orange"
+V(clubmates)[V(clubmates)$agency == 6]$color <- "brown"
+V(clubmates)[V(clubmates)$agency == 7]$color <- "white"
+V(clubmates)[V(clubmates)$agency == 8]$color <- "pink"
+
+
+
+
+plot(clubmates,
+     asp=0,
+     vertex.size=5,
+     edge.arrow.size=0.5,
+     edge.color="orange",
+     layout=layout_nicely,
+     main="Vereinskollegen")
+
+
+```
+
+1. gelb: 3      => Jorge Mendes (JM)                        
+2.rot: 2        => Jonathan Barnett (JB)
+3.grün: 4       => Mino Raiola(MR)
+4. blau: 6      => Volker Struth / Sports Total (ST)
+5.orange:3      => Jose Otin / Bahia Internacional  (BI) 
+6.braun:1       => Meissa N'Diaye  (MN)
+7.weiß: 2       => Thomas Kroth / Pro Profil GmbH (PROP)
+8.pink: 1       => Fernando Felicevich (FF)
+
+
+
+
+```{r Analyse Teilnetzwerk clubmates }
+
+#wie viele Komponenten hat das Teilnetzwerk clubmates?
+co_clubmates <- components(clubmates)
+
+co_clubmates
+
+membership(co_clubmates)
+#Teilnetzwerk hat 22 Komponenten,das heißt es gibt 22 Mal den Fall, dass zwei oder mehrere Spieler eines Spielerberaters beim selben Verein spielen.
+
+
+clubmates
+#53 Knoten, 82 Edges
+
+```
+
+Das Teilnetzwerk clubmates hat 22 Komponenten. das heißt es gibt 22 Mal den Fall, dass zwei oder mehrere Spieler eines Spielerberaters beim selben Verein spielen. Färbt man die Knoten der Spieler nach Abhängigkeit ihrer Farbe, fällt auf: 6 dieser 22 isolierten Beziehungsnetzwerke sind Beziehungsnetzwerke zwischen Vereinskollegen von Spielern der Spielerberaterfirma Sports Total. Das zeigt: Diese Beraterfirma hat häufig mindestens zwei Spieler des selben Vereins unter Vertrag. Diese Erkenntnisse wollen wir uns später bei der Analyse der einzelnen Spielerberaternetzwerke nähers anschauen. 
+
+Sports Total setzt damit eher auf Spieler verschiedener Vereine, dann aber oft mehrere Spieler des selben Vereins. Ganz anders Fernando Felicevich (pink): Er hat nur ein Spielerpaar, das im selben Verein spielt. Ein Grund hierfür könnte sein, dass Felicevich fast nur chilenische Nationalspieler berät. Weil die chilenische Liga nicht so stark ist, sind seine Spieler in ganz Europa und teilweise auch Amerika verteilt. Folglich spielen Vereine für ihn keine wichtige Rolle.
+
+Von unseren insgesamt 160 Spielern haben 53 mindestens einen Vereinskollegen, der vom selben Spielerberater beraten wird. Insgesamt ergeben sich 83 reziproke Beziehungen durch die selbe Vereinszugehörigkeit beim selben Spielerberater.
+
+Das bedeutet: Im Schnitt hat fast jeder dritte Spieler innerhalb des Netzwerks eines Spielerberaters eine Beziehung zu einem anderen Spieler durch die gleiche Vereinszugehörigkeit. Dadurch lässt sich sagen, dass ein Muster von Spielerberatern ist, mehrere Spieler von gleichen Vereinen zu beraten und dadurch ein Netzwerk aufzubauen.
+
+
+### 4.2.1.6 Teilnetzwerk Nationalmannschaftskollegen
+
+```{r Visualisierung und Analyse Teilnetzwerk internationalmates, fig.height=15, fig.width=20}
+
+#gib den Spielern verschiedene Farben in Abhängigkeit ihres Beraters
+
+V(internationalmates)[V(internationalmates)$agency == 1]$color <- "yellow"
+V(internationalmates)[V(internationalmates)$agency == 2]$color <- "red"
+V(internationalmates)[V(internationalmates)$agency == 3]$color <- "green"
+V(internationalmates)[V(internationalmates)$agency == 4]$color <- "blue"
+V(internationalmates)[V(internationalmates)$agency == 5]$color <- "orange"
+V(internationalmates)[V(internationalmates)$agency == 6]$color <- "brown"
+V(internationalmates)[V(internationalmates)$agency == 7]$color <- "white"
+V(internationalmates)[V(internationalmates)$agency == 8]$color <- "pink"
+
+
+
+plot(internationalmates,
+     asp=0,
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     main="Teilnetzwerk Nationalmannschaftskollegen")
+
+
+
+
+```
+Die großen Cliquen von der portugiesischen (große gelbe Clique, Agent: Mendes) und chilenischen (weiße Knoten, Agent: Felicevich) Nationalmannschaft sind hier auffällig. Jorge Mendes (gelb) berät einige portugiesische Nationalspieler. Mendes selbst ist Portugiese, hier wird wieder die Homophilie deutlich: Mendes berät vermehrt portugiesische Spieler, die auch in der Nationalmannschaft spielen und sich deshalb kennen. Auch bei Fernando Felicevich (pink) fällt auf, dass dieser sehr viele chilenische Nationalspieler berät. Da Felicevich selbst auch Chilene ist, zeigt sich hier wieder die Homophilie. Gleiches gilt für die deutsche Beratungsfirma Sports Total (blau): Sie berät viele deutsche Nationalspieler. 
+
+Auch der englische Berater Jonathan Barnett(rot) setzt auf Nationalspieler seines Heimatlandes. Bei Mino Raiola (grün) finden sich gleich zwei Homophilie-Aspekte: Mit Kluivert, Malen, Stengs, De Ligt und Boadu berät er fünf Nationalspieler Hollands, zum anderen berät er mit Romagnoli, Kean, Verratti, Donnarumma auch vier italienische Nationalspieler. 
+
+Die Gründe: Raiola wurde in Italien geboren, spricht deshalb fließend italienisch. Als Kind wanderte er jedoch mit seiner Familie nach Holland aus, weshalb er auch holländisch fließend spricht. Raiola hat also persönliche Bezüge zu beiden Ländern und ist quasi in beiden Sprachen Muttersprachler (kicker, 2016). 
+
+Wir vermuten, dass er deshalb einige italienische und holländische Nationalspieler berät. Bei Raiola zeigt sich die Homophilie also nicht nur bei der Nationalität, sondern auch beim Thema Kommuniaktion und Sprache: Raiola setzt vermehrt auf die Spieler, die dieselbe Sprache wie er sprechen (Holländer und Italiener).
+
+Der eínzige Spielerberater, der nicht mindestens zwei Nationalspieler seines Heimatlandes oder einer Nation, in der man seine Sprache spricht, hat, ist Thomas Kroth: Er hat drei japanische Nationalspieler. Bei anschließenden Recherchen konnten wir herausfinden, dass er sich als Japan-Experte einen Namen gemacht hat. (aber dazu mehr in unserem Edit-Data-Beitrag)
+
+
+### 4.2.2.7 Teilnetzwerk Kollegen
+
+Netzwerk aller Spieler mit relation 5 UND 6
+
+
+
+```{r Visualisierung Netzwerk Vereinskollegen und Nationalmannschaftsbeziehung, fig.height=12, fig.width=16}
+
+#erstelle Netzwerk aller Spieler, das die relation=5 (Vereinskollegen) und relation=6 (Nationalmannschaftskollegen) beinhaltet
+
+mates <- subgraph.edges(s, E(s)[relation>4])
+mates
+
+#gib den Spielern verschiedene Farben in Abhängigkeit ihres Beraters
+
+V(mates)[V(mates)$agency == 1]$color <- "yellow"
+V(mates)[V(mates)$agency == 2]$color <- "red"
+V(mates)[V(mates)$agency == 3]$color <- "green"
+V(mates)[V(mates)$agency == 4]$color <- "blue"
+V(mates)[V(mates)$agency == 5]$color <- "orange"
+V(mates)[V(mates)$agency == 6]$color <- "brown"
+V(mates)[V(mates)$agency == 7]$color <- "white"
+V(mates)[V(mates)$agency == 8]$color <- "pink"
+
+plot(mates,
+     asp=0,
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.2,
+     main="Teilnetzwerk Mates",
+     sub="n=99")
+
+
+```
+
+Hier ist besonders das Cluster der gelben Knoten auffällig. Diese Spieler werden von Jorge Mendes beraten. Keine Spielergruppe von ihm, die in gleichen Vereinen oder in der gleichen Nationalmannschaft spielen, steht isoliert da. Es ist innerhalb des Teilnetzwerks mates ein einziges Cluster, das alle Spieler mit Relation 5 und 6 umfasst. Das lässt darauf schließen, dass das Netzwerk von ihm besonders dicht ist. Aber dazu später mehr.
+
+
+*Teilnetzwerk Beziehung im Vergleich*
+
+
+
+*Analyse der Teilnetzwerke (nach Node-Attributen)*
+
+### 4.2.3 Teilnetzwerke nach Node-Attributen
+
+
+### 4.2.3.1 Teilnetzwerke nach Spielerberatern
+
+
+```{r Teilnetzwerke nach Spielerberatern }
+
+#erstelle Teilnetzwerke der einzelnen Spielerberater
+
+#Netzwerk aller Spieler, die von Mendes beraten werden
+Mendes <- delete.vertices(s, V(s)[agency!=1])
+Barnett <- delete.vertices(s, V(s)[agency!=2])
+Raiola <- delete.vertices(s, V(s)[agency!=3])
+Sports_Total <- delete.vertices(s, V(s)[agency!=4])
+Bahia_Internacional <- delete.vertices(s, V(s)[agency!=5])
+Ndiaye <- delete.vertices(s, V(s)[agency!=6])
+Kroth <- delete.vertices(s, V(s)[agency!=7])
+Felicevich <- delete.vertices(s, V(s)[agency!=8])
+
+
+
+```
+
+### 4.2.3.1.1 Teilnetzwerk Mendes
+
+
+```{r Analyse Teilnetzwerk Mendes mit Fokus auf Beziehungen}
+
+
+edge_density(Mendes)
+#Netzwerkdichte beträgt 43,6 % => fast die Hälfte aller möglichen Beziehungen sind realisiert. mendes hat nur drei Spieler, die keine andere Beziehung zu anderem Spielern aus seinem Netzwerk haben. 
+
+# welche Triaden-Konstellationen treten wie oft im Teilnetzwerk auf?
+triad_census(Mendes)
+# es gibt 222 echte Cliquen (Typ 003) in dem Teilnetzwerk!!!
+
+
+#zeige mir die größte Cliquen an
+largest_cliques(Mendes)
+#=> in der größten Clique sind wie vermutet die portugiesischen Nationalspieler!
+
+max_cliques(Mendes)
+#=> gleiche Clique wie oben
+
+degree_Mendes <- degree(Mendes)
+degree_Mendes
+
+#Jota und Mendes mit jeweils 30 Degrees => spielen beide bei Wolverhampton => zentrale Rolle als Vermittler?
+#berechne beeetweennes 
+
+Mendes_between <- betweenness(Mendes)
+Mendes_between
+#Cancelo mit höchstem Betweenness-Wert 
+
+
+
+```
+
+
+
+```{r Analyse Teilnetzwerk Mendes mit Fokus auf Node-Attribute}
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Mendes)$nation
+#nation 7 ist auffällig: 14 von 20 Spielern sind Portugiesen => Mendes ist selbst auch Portugiese => Homophilie
+
+#hat er Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Mendes)$international
+#13 von 20 Spieler waren im Jahr 2019 portugiesische Nationalspieler
+#generell viele Nationalspieler: nur drei waren 2019 keine Nationalspieler!
+
+#bei welchen Vereine spielen seine Spieler?
+vertex.attributes(Mendes)$club
+#4 Spieler spielen bei Wolverhampton (club = 30)
+#3 Spieler bei Benfica Lissabon (club=32)
+
+#lösche alle Spieler, die nicht bei Wolverhampton spielen
+Mendes_wolves <- delete.vertices(Mendes, V(Mendes)[club!=30])
+Mendes_wolves
+#wir haben beim Teilnetzwerk Club gesehen, dass fünf Spieler aller Spielerberater bei Wolverhampton spielen. Vier dieser fünf werden von Jorge Mendes beraten. Scheinbar hat er also eine Vorliebe für Spieler von Wolverhampton bzw. transferiert sie dort hin.
+
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Mendes)$league
+#9 Spieler in Premier League (league = 3)
+
+#welches Alter haben Spieler?
+vertex.attributes(Mendes)$age
+#8 Spieler sind zwischen 22 und 25 Jahre alt (age=2)
+#8 Spieler sind zwischen 26 und 29 Jahre alt (age=3)
+#=> 16 von 20 Spielern sind zwischen 22 und 29 Jahre alt
+
+#auf welcher Position spielen sie?
+vertex.attributes(Mendes)$position
+#7x Position 4 = Stürmer/Angreifer
+#7x Position 2 = Verteidiger
+#=> tendenziell berät er Verteidiger und Stürmer
+
+#welchen Marktwert in Eurp haben seine Spieler?
+vertex.attributes(Mendes)$value
+#1x 61 Mio und höher (value= 9)
+#3x 51 - 60 Mio (value = 8)
+#1x 41 - 50 Mio (value = 7)
+#6x 31 - 40 Mio (value = 6)
+#5x 21 - 30 Mio (value = 5)
+#4x 11 - 20 Mio (value = 4)
+
+#=> die meisten seiner Top 20 Spieler nach Marktwert liegen im Bereich zwischen 21 und 40 Mio Euro! (11 von 20 Spielern)
+#=> wenn man die Top 20 Spieler nimmt, dann hat davon jeder mindestens einen Marktwert von 11 Mio Euro
+
+
+
+
+
+```
+
+
+```{r Visualisierung Teilnetzwerk Mendes, fig.height=12, fig.width=16}
+
+#färbe alle Knoten mit nation = 7 (Portugiesisch) gelb und alle anderen grau
+V(Mendes)[V(Mendes)$nation == 7]$color <- "yellow"
+V(Mendes)[V(Mendes)$nation != 7]$color <- "grey40"
+
+#gib allen Knoten, die in Premier League spielen, eine blaue Umrandung
+V(Mendes)[V(Mendes)$league == 3]$frame.color <- "darkblue"
+
+Mendes
+
+plot(Mendes,
+     asp=0, 
+     layout=layout_with_kk,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     edge.curved=curve_multiple(Mendes),
+     main="Teilnetzwerk Mendes")
+
+
+```
+
+Das Netzwerk von Jorge Mendes ist mit einer Dichte von 43,6 Prozent sehr dicht. 17 der 20 Spieler haben mindestens eine Beziehung zu einem anderen Spieler. Es wird deutlich: Mendes hat sich vor allem ein Netzwerk mit portugiesischen Spielern aufgebaut:  Von den Top 20 Spielern nach Marktwert im Oktober 2020 sind gleich 14 portugiesische Spieler, das sind mehr als zwei Drittel. 12 dieser 14 Spieler bilden zudem die größte Clique im Teilnetzwerk Mendes. Wegen dieser "Portugal-Connection" gibt es mit 222 eine sehr hohe Zahl an echten Cliquen von Typ 003.
+Denn: 13 dieser 14 Portugiesen spielen in der portugiesischen Nationalmannschaft und gehen allein dadurch reziproke Beziehungen ein.
+
+Da Mendes selbst Portugiese ist, sieht man hier wieder, dass die Homophilie bei der Wahl der Klienten von Spielerberatern eine zentralle Rolle spielt. Das gilt vermutlich auch andersrum: Unter den portugiesischen Nationalspieler hat sich wahrscheinlich zu einem Zeitpunkt irgendwann einmal herumgesprochen, dass Mendes einige Spieler von ihnen berät - wenn diese den Berater an andere Nationalmannschaftskollegen weiterempfohlen, konnte Mendes sein Netzwerk ausbauen. Mendes favorisiert aber nicht nur eine Nation, sondern auch eine Liga: 9 seiner Top-20-Spieler spielten zur Rückrunde 19/20 in der englischen Premier League. Sechs dieser neun Spieler, die in der Premier League spielen, sind sogar Portugiesen. Und: drei dieser sechs Spieler portugiesischen Premier-League-Spieler spielen bei Wolverhampton. In unserem Gesamtnetzwerk spielen insgesamt fünf Spieler bei Wolverhampton. Vier davon werden von Jorge Mendes beraten. Es ist also auch ein Muster von ihm, spieler in die Premier League zu transferieren, und dann öfters auch nach Wolverhampton.
+
+Zentrale Akteure in diesem Teilnetzwerk sind passend dazu mit Neves und Jota auch zwei Spieler, die bei Wolverhampton spielen.
+
+Außerdem konnten wir herausfinden, dass Mendes vermehrt auf Verteidiger und Stürmer setzt. Die meisten seiner Top 20 Spieler nach Marktwert liegen im Bereich zwischen 21 und 40 Mio Euro. (11 von 20 Spielern) Wenn man die Top 20 Spieler nimmt, dann hat davon jeder mindestens einen Marktwert von 11 Mio Euro. Drei seiner Spieler haben ein Marktwert zwischen 51 und 60 Millionen. Mendes berät generell viele Nationalspieler: nur drei der 20 waren 2019 keine Nationalspieler. 
+
+
+
+### 4.2.3.1.2 Teilnetzwerk Barnett
+
+
+
+
+```{r Analyse Teilnetzwerk Barnett mit Fokus auf Beziehungen}
+
+edge_density(Barnett)
+
+#Netzwerkdichte: 12,4 % gerundet
+
+#deutlicher Unterschied zu Mendes => Barnett setzt auch auf Spieler, die keine Beziehungen zu anderen Spielern haben 
+
+#evtl auch Grund: Englisch ist Weltsprache, Geschäftssprache, kann jeder, deshalb auch viele Spieler, die nicht aus englischsprachigen Ländern kommen
+
+
+# welche Triaden-Konstellationen treten wie oft im Teilnetzwerk auf?
+triad_census(Barnett)
+# es gibt 11 echte Cliquen (Typ 003) in dem Teilnetzwerk
+
+
+#zeige mir die größte Cliquen an
+largest_cliques(Barnett)
+#=> in der größten Clique sind die englischen Nationalspieler!
+
+#welche Akteure haben viele Degrees?
+degree_Barnett <- degree(Barnett)
+degree_Barnett
+
+#Henderson hat die meisten degrees innerhalb der Spieler
+
+Barnett_between <- betweenness(Barnett)
+Barnett_between
+
+#Henderson hat höchsten Betweenness-Wert
+
+
+```
+
+
+
+```{r Analyse Teilnetzwerk Barnett nach Node-Attributen}
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Barnett)$nation
+#nation 27 ist auffällig: 9 von 20 Spielern sind Engländer => Barnett ist selbst auch Engländer => Homophilie
+#ansonsten aber viele unterschiedliche Nationaitäten
+
+#hat er Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Barnett)$international
+#5 von 20 Spieler waren im Jahr 2019 englische Nationalspieler
+#generell viele Nationalspieler: nur vier Spieler waren 2019 keine Nationalspieler!
+
+#bei welchen Vereine spielen seine Spieler?
+vertex.attributes(Barnett)$club
+#3 Spieler spielen bei Manchester United (club = 43)
+#=> generell aber eher verteilt
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Barnett)$league
+#11 Spieler in Premier League (league = 3) => Homophilie
+
+#welches Alter haben Spieler?
+vertex.attributes(Barnett)$age
+#14 Spieler sind zwischen 22 und 25 Jahre alt (age=2)
+
+
+
+#auf welcher Position spielen sie?
+vertex.attributes(Barnett)$position
+# 4x Position 4 = Stürmer/Angreifer
+# 5x Position 3 = Mittelfeldspieler
+# 6x Position 2 = Verteidiger
+# 5x Position 1 = Torhüter
+# => sehr ausgeglichen; aber auffällig: 5 Torhüter!
+
+#welchen Marktwert in Eurp haben seine Spieler?
+vertex.attributes(Barnett)$value
+# 19 von 20 Spielern haben Marktwerte zwischen 11 und 40 Mio.
+
+
+
+
+```
+
+
+
+
+
+```{r Visualisierung Teilnetzwerk Barnett, fig.height=12, fig.width=16}
+
+
+#färbe alle Spieler, die in Premier League spielen, rot und den Rest grau
+V(Barnett)[V(Barnett)$league == 3]$color <- "red"
+V(Barnett)[V(Barnett)$league != 3]$color <- "grey40"
+
+#gib allen Knoten mit englischer Nationalität eine blaue Umrandung
+V(Barnett)[V(Barnett)$nation == 27]$frame.color <- "yellow"
+
+plot(Barnett,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     edge.curved=curve_multiple(Barnett))
+
+
+```
+
+
+
+Bei Jonathan Barnett zeigt sich auch, dass Homophilie bei der Wahl der Klienten eine Rolle spielt: 11 der 20 Spieler spielen in der englischen Liga, der Liga seines Geburtslandes. Im Gegensatz zu Mendes setzt Jonathan Barnett auch auf Spieler, die keine Beziehungen zu anderen Spielern haben. Deswegen gibt es auch kaum Cliquen vom Typ 003 in seinem Netzwerk (insgesamt sind es 11). Die größte Clique besteht aus englischen Nationalspielern, hier wird eben auch wieder die Homophilie deutlich.
+
+Ein Grund, warum Barnett auch auf Spieler setzt, die keine Verbindungen untereinander haben, könnte sein, dass er mit Englisch eine Muttersprache spricht, die zugleich Weltsprache ist. Eventuell hat er deshalb auch viele Klienten, die nicht aus englischsprachigen Ländern kommen, weil hier die Sprachbarriere trotzdem gering ist.
+
+Außerdem hat Barnett 14 Spieler, die im Oktober 2020 zwischen 22 und 25 Jahre alt waren! Er hat was das Alter angeht also eine klare Präferenz. Bei den Positionen ist es sehr ausgeglichen: Man kann nicht sagen, dass Barnett besonders gerne Spieler berät, die eauf einer bestimmten Position spielen. Was aber auffällt: Barnett berät gleich fünf Torhüter, was im Gegensatz zu den anderen Spielerberatern von oben sehr viel ist.
+
+Barnett ist außerdem der Spielerberater, der die meisten Torhüter berät.
+
+Jordan Henderson hat in dem Netzwerk die meisten Degrees sowie den höchsten Beetweennes-Wert, das heißt er könnte eine Art Vermittler sein, der andere Spieler seinen Berater empfiehlt bzw. über den andere Spieler in der Vergangenheit zu Barnett gelangten. 
+
+
+
+### 4.2.3.1.3 Teilnetzwerk Raiola
+
+
+
+```{r Analyse Teilnetzwerk Raiola mit Fokus auf Beziehungen}
+
+Raiola
+#21 Knoten, 62 Edges
+
+edge_density(Raiola)
+#Netzwerkdichte gerundet 14,8 %
+
+
+#welche Triaden-Konstellationen treten wie oft im Teilnetzwerk auf?
+triad_census(Raiola)
+# es gibt 14 echte Cliquen (Typ 003) in dem Teilnetzwerk
+
+
+#zeige mir die größte Cliquen an
+largest_cliques(Raiola)
+#=> in der größten Clique sind die holländischen Nationalspieler!
+
+#wer hat meisten Degrees?
+Raiola_deg <- degree(Raiola)
+Raiola_deg
+#Kluivert, Mkhitaryan, Stengs, Boadu zentrale Rolle
+
+#berechne Betweenness Wert
+Raiola_bet <- betweenness(Raiola)
+Raiola_bet
+#=> Kluivert als Brücke!
+
+
+```
+
+
+
+
+
+```{r Analyse Teilnetzwerk Raiola nach Node-Attributen}
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Raiola)$nation
+# auffällig: 6 Italiener (nation=11) und 6 Holländer (nation=13)
+# => Homophilie
+
+#hat er Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Raiola)$international
+#auffällig: neun Spieler waren im Jahr 2019 gar keine Nationalspieler. Und das, obwohl Raiola als Star-Agent gilt
+
+#bei welchen Vereine spielen seine Spieler?
+vertex.attributes(Raiola)$club
+
+
+#=> generell aber eher verteilt
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Raiola)$league
+# 9 Spieler in italienischer Liga Serie A (league = 8) => Homophilie
+#  4 Spieler in holländischer Liga
+#=> die meisten seiner Spieler spielen in den Ligen der Länder, in denen Raiola geboren bzw. aufgewachsen ist => Homophilie
+
+#welches Alter haben Spieler?
+vertex.attributes(Raiola)$age
+#11 Spieler sind zwischen 18 und 21 Jahre alt (age=1)
+# => Raiola setzt auf junge Talente
+
+#auf welcher Position spielen sie?
+vertex.attributes(Raiola)$position
+# 9x Position 4 = Stürmer/Angreifer
+# 5x Position 3 = Mittelfeldspieler
+# 4x Position 2 = Verteidiger
+# 2x Position 1 = Torhüter
+# berät gerne Angreifer!
+
+#welchen Marktwert in Euro haben seine Spieler?
+vertex.attributes(Raiola)$value
+
+# 3x 61 Mio und höher (value= 9)
+# 2x 51 - 60 Mio (value = 8)
+# 0x 41 - 50 Mio (value = 7)
+# 3x 31 - 40 Mio (value = 6)
+# 3x 21 - 30 Mio (value = 5)
+# 9x 11 - 20 Mio (value = 4)
+
+#9 von 20 Spielern haben einen geringen Marktwert im Bereich 11 - 20 Millionen. Aber: gleich fünf der restlichen 11 Spielern haben einen Markwert von mindestens 51 Millionen Euro. Im Bereich 61 Mio und höher berät Raiola gleich drei Spieler
+
+
+
+```
+
+
+
+
+
+
+```{r Visualisierung Teilnetzwerk Raiola, fig.height=12, fig.width=16}
+
+plot(Raiola,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+     vertex.color="green",
+     edge.arrow.size=.5,
+     edge.curved=curve_multiple(Raiola))
+
+
+
+```
+
+
+
+
+
+Die Netzwerkdichte von Raiolas Netzwerk beträgt 14,8%. Das heißt, dass 14,8% aller zu realisierenden Beziehungen realisiert sind. Einige der Raiola-Spieler sind also Vereins- und/oder Nationalmannschaftskollegen. Es fällt auf:  Ein Großteil der Beziehungen geht auf zwei Cluster zurück. Eins davon besteht aus den italienischen Nationalspielern, das andere aus den holländischen Nationalspielern. Wie oben bereits erwähnt, hat das zwei Gründe: Raiola ist Italiener, geboren in Süditalien (Kicker, 2016). Deshalb hat er vermehrt italienische Spieler. Da Raiola als Top-Agent unter den Spielerberatern gehört, sind viele dieser italienischen Spieler so gut, dass sie in der Nationalmannschaft spielen. 
+
+Nun aber die Frage: Woher kommen die holländischen Spieler? Auch hier spielt die Homophilie eine zentrale Rolle: Als kleiner Junge wanderte Raiola gemeinsam mit seinen Eltern nach Holland aus, weshalb er neben italienisch auch fließend holländisch spricht (Dersewski, 2016). 
+
+Da es zwischen ihm und holländischen Spielern keine Sprachbarriere zu überwinden gibt, setzt er auch vermehrt auf eben jene holländischen Spieler, von denen einige Nationalspieler sind. Die Homophilie hat bei Raiol aber nicht nur einen Einfluss auf die Wahl der Klienten, sondern auch auf deren Ligazugehörigkeit: Mehr als die Hälfte seiner Spieler spielt in den Ligen der Länder, in denen Raiola geboren und aufgewachsen ist. (12 von 20 Spielern spielen in Serie A und Eredivise)
+
+
+Auffällig bei Raiola ist, dass neun von seinen 20 Spielern zwischen 18 und 21 Jahre sind. Raiola berät im Vergleich zu allen anderen Spielerberatern die meisten jungen Spieler. Im Optimalfall entwickeln sich diese fußballerisch weiter, sodass Raiola sie zu größeren Clubs transferieren und dadurch Geld machen kann. 
+
+Vermutlich auch deshalb sind neun Spieler von Raiola in unserem Datensatz gar keine Nationalspieler, denn junge Talente spielen selten schon ganz früh in Nationalmannschaften. 
+
+Damit einher geht wohl auch, dass neun von 20 Spielern einen geringen Marktwert im Bereich 11 - 20 Millionen haben. Aber: Gleich fünf der restlichen 11 Spieler haben einen Markwert von mindestens 51 Millionen Euro. Im Bereich 61 Mio und höher berät Raiola sogar drei Spieler. Hier sieht man, warum Raiola als Star-Agent gilt. 
+
+Was die Position seiner Klienten angeht, hat Raiola eine Präferenz: neun der 20 Spieler sind Angreifer. 
+
+
+
+
+
+
+
+
+
+
+
+### 4.2.3.1.4 Teilnetzwerk Sports Total
+
+
+
+```{r Analyse Teilnetzwerk Sports Total mit Fokus auf Beziehungen}
+
+Sports_Total
+#21 Knoten, 78 Edges
+
+#berechne Netzwerkdichte
+edge_density(Sports_Total)
+#Netzwerkdichte 18,6 % => 18,6 Porzent aller zu realisierenden Beziehungen sind  realisiert
+
+
+#welche Triaden-Konstellationen treten wie oft im Teilnetzwerk auf?
+triad_census(Sports_Total)
+# es gibt 36 echte Cliquen (Typ 003) in dem Teilnetzwerk
+
+
+#zeige mir die größte Cliquen an
+largest_cliques(Sports_Total)
+#=> in der größten Clique sind die deutschen Nationalspieler!
+
+#berechne Degree
+
+ST_deg <- degree(Sports_Total)
+ST_deg
+#Stark, Uth und Waldschmidt zentral
+
+
+betweenness(Sports_Total)
+#Waldschmidt, Stark und Uth Brücke
+```
+
+
+
+```{r Analyse Teilnetzwerk Sports Total nach Node-Attributen}
+
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Sports_Total)$nation
+# auffällig: 16 von 20 Spielern sind Deutsche => Homophilie
+
+
+#hat Sports Total Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Sports_Total)$international
+#auffällig: 12 von 20 keine Nationalspieler, von den acht Nationalspielern spielen sechs in der deutschen Nationalmannschaft => Homophilie
+
+
+#bei welchen Vereinen spielen seine Spieler?
+vertex.attributes(Sports_Total)$club
+#kein Verein überdurchschnittlich vertreten
+
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Sports_Total)$league
+# 18 der 20 Spieler von Sports Total spielten zur Rückrunde 19/20 in Bundesliga (90%) => Homophilie
+
+#welches Alter haben Spieler?
+vertex.attributes(Sports_Total)$age
+
+# 7 Spieler sind zwischen 22 und 25 Jahre alt (age=2)
+# 8 Spieler sind zwischen 26 und 29 Jahre alt (age=3)
+# => Präferenz für Spieler zwischen 22 und 29 Jahre
+
+#auf welcher Position spielen sie?
+vertex.attributes(Sports_Total)$position
+# 4x Position 4 = Stürmer/Angreifer
+# 7x Position 3 = Mittelfeldspieler
+# 9x Position 2 = Verteidiger
+# 0x Position 1 = Torhüter
+# präferiert Verteidiger und Mittelfeldspieler
+
+#welchen Marktwert in Euro haben seine Spieler?
+vertex.attributes(Sports_Total)$value
+#die Hälfte der 20 Spieler hat einen geringen Marktwert von 6 - 10 Mio Euro
+#dennoch gibt es auch drei Spieler, die im Bereich 41 und 60 Millionen liegen
+
+#15 von 20 Spielern haben Marltwert zwischen 6 und 20 Millionen
+
+# 1x 51 - 60 Mio (value = 8)
+# 2x 41 - 50 Mio (value = 7)
+
+# 0x 31 - 40 Mio (value = 6)
+
+# 1x 21 - 30 Mio (value = 5)
+# 5x 11 - 20 Mio (value = 4)
+# 10x  6 - 10 Mio (value = 3)
+# 1x   1 - 5 Mio (value = 2)
+
+
+
+
+
+```
+
+
+
+
+```{r Visualisierung Teilnetzwerk Sports Total, fig.height=15, fig.width=20}
+
+Sports_Total
+
+#färbe alle Spieler, die in Bundesliga spielen, blau und den Rest grau
+
+V(Sports_Total)[V(Sports_Total)$league == 1]$color <- "blue"
+V(Sports_Total)[V(Sports_Total)$league != 1]$color <- "grey40"
+
+#gib allen Spielern, die in Bundesliga spielen, eine gelbe Schrift
+V(Sports_Total)[V(Sports_Total)$league == 1]$label.color <- "yellow"
+
+
+plot(Sports_Total,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.5,
+    edge.curved=curve_multiple(Sports_Total)
+)
+
+
+
+```
+Analysiert man das Spieler-Netzwerk der deutschen Beraterfirma "Sports Total", so ist besonders die Homophilie frappant. Zum einen sind 80 Prozent der Spieler dieser Beraterfirma Deutsche, zum anderen spielen sogar 90 Prozent der Spieler in der deutschen Bundesliga. Dass viele ihrer Klienten in der Bundesliga spielen, hängt vermutlich auch damit zusammen, dass die Spielerberaterfirma hauptsächlich deutsche Spieler berät. Und es ist eben dann oft so, dass man als deutscher Spieler auch in der deutschen Liga spielt. Dennoch ist diese "doppelte Homophilie" (Nation + Liga) auffällig. 
+
+Das Netzwerk hat eine gerundetet Dichte von 18,6 Prozent. Knapp ein Fünftel aller möglichen Verbindungen sind also realisiert.
+
+Sports Total hat häufig mindestens zwei Spieler des selben Vereins unter Vertrag und setzt damit eher auf Spieler verschiedener Vereine, dann aber oft gleich zwei oder drei Spielern des selben Vereins.#
+
+Auffällig ist auch, dass 12 von 20 Spielern von Sports Total gar keine Nationalspieler sind. Eine erfolgreiche Beraterfirma muss also nicht nur Nationalspieler haben. Von den acht Nationalspielern spielen sechs in der deutschen Nationalmannschaft. Hier wird die Homophilie wieder deutlich.
+
+Die Agentur präferiert bevorzugt Spieler zwischen 22 und 29 Jahre (15 von 20 Spielern sind in diesem Bereich).
+Was die Positionen angeht, hat die Agentur eine Präferenz für Verteidiger und Mittelfeldspieler: 80 der Top 20 Spieler spielen auf diesen beiden Positionen. 
+
+Im Schnitt hat jeder zweite Sports-Total-Spieler unseres Datensatzes einen geringen Marktwert von 6 bis 10 Millionen Euro. Sports Total ist also nicht darauf aus, die "großen Fische" im Profifußball zu beraten. Dennoch gibt es auch drei Spieler, deren Marktwerte im Bereich 41 und 60 Millionen liegen. 
+
+
+
+
+
+
+### 4.2.3.1.5 Teilnetzwerk Bahia Internacional
+
+
+
+
+
+```{r Analyse Teilnetzwerk Bahia Internacional}
+
+edge_density(Bahia_Internacional)
+
+#gerundet ist Dichte bei 9 Prozent
+
+#obwohl nur spanische Spieler, Dichte relativ gerinng, da nur zwei Nationalspieler und sonst auch nicht viele aus gleichem Verein
+
+
+```
+```{r Analyse Teilnetzwerk mit Fokus auf Node-Attribute }
+
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Bahia_Internacional)$nation
+# auffällig: nur spanische Spiieler => spanische Agentur => Homophilie
+
+
+#hat Sports Total Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Bahia_Internacional)$international
+#auffällig: 18 von 20 keine Nationalspieler, zwei sind spanische Nationalspieler
+#das erklärt, warum Dichte relativ gering ist
+
+
+#bei welchen Vereinen spielen seine Spieler?
+vertex.attributes(Bahia_Internacional)$club
+#kein Verein überdurchschnittlich vertreten bis auf San Sebastian (club=2)
+
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Bahia_Internacional)$league
+# auffällig: 12 Spieler in BBVA, spanische League (club = 5) => Homophilie
+
+#welches Alter haben Spieler?
+vertex.attributes(Bahia_Internacional)$age
+
+# 7 Spieler sind zwischen 30 und 33 Jahre alt (age=4) => diese Agentur setzt eher auf ältere Spieler
+
+
+#auf welcher Position spielen sie?
+vertex.attributes(Bahia_Internacional)$position
+# keine besonderen Auffälligkeiten
+
+#welchen Marktwert in Euro haben seine Spieler?
+vertex.attributes(Bahia_Internacional)$value
+#die Hälfte der 20 Spieler hat einen sehr geringen Marktwert von 1-5 Mio Euro 
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+```{r Visualisierung Teilnetzwerk Bahia Internacional, fig.height=12, fig.width=16}
+
+
+V(Bahia_Internacional)[V(Bahia_Internacional)$nation == 1]$color <- "grey"
+V(Bahia_Internacional)[V(Bahia_Internacional)$nation != 1]$color <- "orange"
+
+plot(Bahia_Internacional,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.5,
+    edge.curved=curve_multiple(Bahia_Internacional))
+
+
+
+```
+
+
+
+
+BI hat nur Spanier => Homophilie
+
+Die Beraterfirma von Jose Antonio Martin berät innerhalb der von uns erfassten Daten ausschließlich spanische Spieler. Dabei ist aber auffällig, dass es hierbei nur wenige Verbindungen zwischen den Spielern selbst gibt. Die meisten von Ihnen sind in vier der fünf Topligen Eurpas zuhasue. Auch sind von diesen Spielern nur wenige in der Nationalmannschaft tätig, was vermuten lässt, dass hier bevorzugt auf spanische Talente oder auf Spieler in zweiter Reihe gesetzt wird. Diese Faktoren erklären auch die relativ geringe Dichte von 9 %. 
+Das hängt auch damit zusammen, dass die Agentur vermehrt auf Spieler zwischen 30 und 33 Jahre setzt. außerdem hat die Hälfte der Spieler einen sehr geringen Makrtwert von 1-5 Mio Euro.
+
+
+
+
+### 4.2.3.1.6 Meissa N'Diaye
+
+
+
+
+```{r Ananlyse Teilnetzwerk Diaye}
+
+edge_density(Ndiaye)
+
+#Netzwerkdichte 6,7%
+
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Ndiaye)$nation
+#nation 4 ist auffällig: einige Franzosen => Meissa N'diaye ist selbst auch Franzose => Homophilie
+
+#hat er Nationalspieler? Und wennn ja, von einem Land besonders viele?
+vertex.attributes(Ndiaye)$international
+#9 von 20 Spieler waren im Jahr 2019 keine Nationalspieler
+
+#bei welchen Vereine spielen seine Spieler?
+vertex.attributes(Ndiaye)$club
+#kaum welche spielen im selben Verein => deshalb auch geringe Netzwerkdichte
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Ndiaye)$league
+#6 Spieler in Premier Leagie (league = 3)
+
+#welches Alter haben Spieler?
+vertex.attributes(Ndiaye)$age
+#2 und 3 überwiegen => überwiegend Spieler zwischen 22 und 29
+
+#auf welcher Position spielen sie?
+vertex.attributes(Ndiaye)$position
+#9x Position 4 = Stürmer/Angreifer
+#=> 9 von 20 Spielern sind Angreifer => also fast die Hälfte
+
+#welchen Marktwert haben seine Spieler?
+vertex.attributes(Ndiaye)$value
+#9 Spieler haben value = 2 => also Marktwert zwischen 1 und 5 Millionen Euro (Stand: Oktober 2020)
+
+```
+
+
+Meissa N’diaye hat auffällig viele französischsprachige Spieler unter Vertrag. Der Großteil der Spieler hat afrikanischen Wurzeln und besitzt die doppelte Staatsbürgerschaft. Hier wird auch wieder Homophilie deutlich: Meissa N'diaye ist selbst Franzose mit afrikanischen Wurzeln. 
+
+Er hat mit 6,7 Prozent aber die geringste Netzwerkdichte. 
+
+Etwas aus dem Raster fallen die zwei luxemburgische Spieler, die er unter Vertrag hat. Wobei in Luxemburg auch größtenteils Französisch gesprochen wird und dann wieder der Kommunikationsaspekt erklärt ist. 
+
+Er setzt vermehrt auf Spieler, die im Angriff spielen und die einen Marktwert zwischen eins und fünf Millionen Euro haben.
+
+
+
+
+```{r Visualisierung Teilnetzwerk Diaye, fig.height=12, fig.width=16}
+
+
+plot(Ndiaye,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+vertex.color="brown",
+     edge.arrow.size=.5,
+    edge.curved=curve_multiple(Ndiaye))
+
+
+```
+
+
+
+
+### 4.2.3.1.7 Pro Profil 
+
+
+Netzwerk besteht eig nur aus deutschen und japanischen Spielern (18 von 20)
+
+```{r Analyse Teilnetzwerk Kroth mit Fokus auf Beziehungen}
+
+edge_density(Kroth)
+
+# Netzwerdichte ist gerundet 9,5 % 
+
+
+# welche Triaden-Konstellationen treten wie oft im Teilnetzwerk auf?
+triad_census(Kroth)
+# es gibt nur fünf echte Cliquen (Typ 003) in dem Teilnetzwerk
+
+#zeige mir die größte Cliquen an
+largest_cliques(Kroth)
+#=> in der größten Clique sind die Spieler von Mainz 05
+
+
+degree_Kroth <- degree(Kroth)
+degree_Kroth
+#dementsprechende hohe Degree-Werte haben auch die Mainzer Spieler
+
+
+
+```
+
+
+```{r Ananlyse Teilnetzwerk Pro Profil mit Fokus auf Node-Attributen}
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Kroth)$nation
+#auffällig: er hat viele deutsche Spieler (nation=2) und viele japanische Spieler (nation=22). Kroth gilt auch als Japan-Experte und hat sich in Japan eine Art Spielerberater-Monopol. 
+
+
+#hat er Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Kroth)$international
+#kaum Nationalspieler, und wenn dann welche von Japan
+
+#bei welchen Vereine spielen seine Spieler?
+vertex.attributes(Kroth)$club
+#keine besonderen Auffälligkeiten, außer Mainzer Spieler
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Kroth)$league
+#11 Spieler in Bundesliga (league = 1) => Homophilie
+#4 Spieler in japanischer Liga => Japan-Experte
+
+#welches Alter haben Spieler?
+vertex.attributes(Kroth)$age
+#relativ ähnlich verteilt
+
+#auf welcher Position spielen sie?
+vertex.attributes(Kroth)$position
+#relativ ähnlich verteilt
+
+#welchen Marktwert in Eurp haben seine Spieler?
+vertex.attributes(Kroth)$value
+#15 von 20 Spieler haben Marktwert von 1-5 Millionen Euro => könnte mit den vielen Japanern zusammenhöngen
+
+```
+
+
+```{r Visualisierung Teilnetzwerk Thomas Kroth / Pro Profil, fig.height=12, fig.width=16}
+
+#färbe alle deutschen Knoten gelb
+V(Kroth)[V(Kroth)$nation == 2]$color <- "yellow"
+
+#färbe alle Japaner blau
+V(Kroth)[V(Kroth)$nation == 22]$color <- "blue"
+
+
+
+plot(Kroth,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.5,
+    edge.curved=curve_multiple(Kroth))
+
+
+````
+
+
+Thomas Kroth ist der einzige Spielerberater, der in Bezug auf die Homophilie ein wenig aus der Reihe fällt. Zwar hat er 11 deutsche Spieler unter Vertrag, aber eben auch neun Japanische. Hintergrund ist, dass er als Japan-Experte den japanischen markt als Spielerberater erschlossen hat und für sich nutzt. Er holt auch viele japanische Spieler in die Bundesliga, injsofern haben wir auch bei den Japanern auch eine Art Homophilie drin.
+
+
+
+
+
+
+### 4.2.3.1.8 Teilnetzwerk Felicevich
+
+
+
+```{r Anaylse Teilnetzwerk Felicevich}
+
+edge_density(Felicevich)
+
+# Dichte 31,4% => nach Mendes die zweitgrößte Dicht => beide Community von Nationalspielern
+
+# welche Triaden-Konstellationen treten wie oft im Teilnetzwerk auf?
+triad_census(Felicevich)
+# es gibt 165 echte Cliquen (Typ 003) in dem Teilnetzwerk!! => bedingt durch Chile-Community
+
+#zeige mir die größte Cliquen an
+largest_cliques(Felicevich)
+#=> sind die chilenischen Nationalspieler
+
+
+degree_Felicevich <- degree(Felicevich)
+degree_Felicevich
+#einige chilenische Spieler nehmen eine besondere Rolle ein: sie haben viele Beziehungen zu anderen Spielern, was wiederum die höhere Dichte erklärt
+
+
+
+```
+
+
+
+
+
+```{r Analyse Teilnetzwerk Felicevich nach Node-Attributen}
+
+#welche Nationalitäten haben die Spieler?
+vertex.attributes(Felicevich)$nation
+#nation 24 ist auffällig: 19 von 20 Spielern sind Chilenen => Felicevich ist selbst auch Chilene => Homophilie
+
+#hat er Nationalspieler? Und wenn ja, von einem Land besonders viele?
+vertex.attributes(Felicevich)$international
+#er hat 11 chilenische Nationalspieler! daher auch die hohe Dichte
+
+#bei welchen Vereine spielen seine Spieler?
+vertex.attributes(Felicevich)$club
+#keine Auffälligkeiten
+
+#in welcher Liga spielen seine Spieler?
+vertex.attributes(Felicevich)$league
+#6 Spieler spielen in chilenischer Liga (league = 19) 
+
+#welches Alter haben Spieler?
+vertex.attributes(Felicevich)$age
+#8 Spieler sind zwischen 30 und 33 Jahre alt (age=4)
+#Felicevich setzt also eher auf erfahrenere Spieler 
+
+#auf welcher Position spielen sie?
+vertex.attributes(Felicevich)$position
+#1ox Position 3 = Mittelfeldspieler
+#=> Felicevich scheint sich verstärkt auf Mittelfeldspieler konzentrieren
+
+
+#welchen Marktwert in Eurp haben seine Spieler?
+vertex.attributes(Felicevich)$value
+#10 Spieler haben Marktwert zwischen 1 und 5 Millionen Euro => Felicevich berät nicht die dicken Fische
+
+```
+
+
+
+```{r Teilnetzwerk Felicevich, fig.height=12, fig.width=16}
+
+plot(Felicevich,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+vertex.color="pink",
+     edge.arrow.size=.5,
+    edge.curved=curve_multiple(Felicevich))
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r erstelle Teilnetzwerk mit jungen Spielern, fig.height=12, fig.width=16}
+
+#lösche alle Knoten aus vereinfachtem Netzwerk, die älter als 21 sind, aber gleichzeitig nicht die Knoten, die Wert 99 haben
+
+#so bleiben Spielerberater, Ligen, Vereine etc. drin
+
+s_y <- delete.vertices(s_sim_final, V(s_sim_final)[age==2])
+s_yo <- delete.vertices(s_sim_final, V(s_sim_final)[age==3])
+s_you <- delete.vertices(s_sim_final, V(s_sim_final)[age==4])
+s_youn <- delete.vertices(s_sim_final, V(s_sim_final)[age==4])
+s_young <- delete.vertices(s_sim_final, V(s_sim_final)[age==4])
+
+
+
+
+```
+
+
+
+
+```{r Visualisierung Teilnetzwerk junge Spieler, fig.height=12, fig.width=16}
+
+V(s_young)[V(s_young)$type == 0]$shape <- "circle"  
+V(s_young)[V(s_young)$type == 1]$shape <- "square"
+
+V(s_young)[V(s_young)$agency == 1]$color <- "yellow"
+V(s_young)[V(s_young)$agency == 2]$color <- "red"
+V(s_young)[V(s_young)$agency == 3]$color <- "green"
+V(s_young)[V(s_young)$agency == 4]$color <- "blue"
+V(s_young)[V(s_young)$agency == 5]$color <- "orange"
+V(s_young)[V(s_young)$agency == 6]$color <- "brown"
+V(s_young)[V(s_young)$agency == 7]$color <- "white"
+V(s_young)[V(s_young)$agency == 8]$color <- "pink"
+
+V(s_young)[V(s_young)$agency == 1]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 2]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 3]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 4]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 5]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 6]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 7]$frame.color <- "black"
+V(s_young)[V(s_young)$agency == 8]$frame.color <- "black"
+
+
+
+plot(s_young,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=degree(s_young)/5, 
+     edge.arrow.size=.3,
+     edge.color="orange",
+     edge.curved=curve_multiple(s_young))
+
+
+#Plot noch unübersichtlich
+
+install.packages("visNetwork", dependencies=TRUE)
+library(visNetwork)
+
+
+
+E(s_young)$arrow.size <- 0.1 # Die Pfeilspitzengröße bei gerichteten Netzwerken.
+E(s_young)$color <- "orange" # Die Farbe der Kanten.
+V(s_young)$size <- 5 # Die Größe der Knoten.
+V(s_young)$frame.color <- "transparent" # Der Rahmen der Knoten.
+V(s_young)$label.color <- "black" # Die Farbe der Labels.
+
+visIgraph(s_young, type = "full", edge.curved=curve_multiple(s_young))
+
+
+```
+
+
+
+
+
+
+```{r andere Visualisierung junge Spieler, fig.height=12, fig.width=16}
+business
+
+#färbe alle Spieler, die zwischen 18 und 21 sind, gelb
+
+V(business)[V(business)$age == 1]$color <- "yellow"
+V(business)[V(business)$age > 1]$color <- "grey40"
+
+
+plot(business, 
+    asp=0, 
+     layout=layout_nicely,
+     vertex.size=5, 
+     edge.arrow.size=.3,
+     edge.color="orange",
+     edge.curved=curve_multiple(business))
+ 
+library(visNetwork)       
+
+E(business)$arrow.size <- 0.1 # Die Pfeilspitzengröße bei gerichteten Netzwerken.
+E(business)$color <- "orange" # Die Farbe der Kanten.
+V(business)$size <- 5 # Die Größe der Knoten.
+V(business)$frame.color <- "transparent" # Der Rahmen der Knoten.
+V(business)$label.color <- "grey" # Die Farbe der Labels.
+
+visIgraph(business, type = "full")
+
+
+
+```
+
+Raiola hat die meisten jungen Spieler! Gleich 11 seiner 20 Spieler sind zwischen 18 und 21. Bei ihm ist es also eine Strategie, auf junge Spieler zu setzen und ihnen den nächsten Karriereschub zu geben.
+
+
+
+
+```{r Teilnetzwerk alte Spieler, fig.height=12, fig.width=16}
+
+#lösche alle Knoten aus vereinfachtem Netzwerk, die mindestens 30 Jahre alt sind
+
+business
+
+#färbe alle Spieler, die 30 und älter sind, braun
+
+V(business)[V(business)$age > 4]$color <- "brown"
+V(business)[V(business)$age==1]$color <- "grey40"
+V(business)[V(business)$age==2]$color <- "grey40"
+V(business)[V(business)$age==3]$color <- "grey40"
+V(business)[V(business)$age==4]$color <- "grey40"
+
+
+
+
+plot(business,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5, 
+     edge.arrow.size=.3,
+     edge.curved=curve_multiple(business))
+
+```
+
+
+
+
+
+
+
+# 5. Visualisiserung
+
+## 5.1 Gesamtnetzwerk
+
+### 5.1.1 Gesamtvisualisierung
+
+```{r einfache Visualisierung des vereinfachten Gesamtnetzwerks, fig.height=12, fig.width=16}
+
+#gib allen Spieler-Knoten (type=0) einen Kreis und färbe sie grau
+#gib allen Organisationen inklusive Spielerberater (type=1)
+V(s_sim_final)[V(s_sim_final)$type == 0]$shape <- "circle"  
+V(s_sim_final)[V(s_sim_final)$type == 1]$shape <- "square"
+
+
+V(s_sim_final)[V(s_sim_final)$type == 0]$color <- "grey40"
+V(s_sim_final)[V(s_sim_final)$type == 1]$color <- "red"
+
+
+plot(s_sim_final,
+     asp=0, 
+     layout=layout_with_graphopt,
+     vertex.size=degree(s_sim_final)/7,
+     edge.arrow.size=.3,
+     edge.arrow.curved=.8,
+     edge.label.family="Helvetica",
+     edge.color="orange",
+     edge.curved=curve_multiple(s_sim_final),
+     main="Visualisierung vereinfachtes Gesamtnetzwerk",
+     sub="207 Knoten, 880 Edges")
+
+
+
+```
+
+
+Man sieht hier deutlich, dass das Gesamtnetzwerk nur eine Komponente hat. Wenn man die Knotengröße abhängig von ihrem Degree-Wert macht, fallen die europäischen Spitzenligen auf. Außerdem klar zu erkennen sind einzelne Cluster von Spielern einzelner Spielerberater. 
+
+
+
+
+## 5.2 Vergleich der Teilnetzwerke
+
+```{r Vergleich Teilnetzwerk Mendes und Ndiaye, fig.height=12, fig.width=16}
+
+#definiert, dass 2 Abbildungen in einer Zeile stehen
+par(mfrow=c(1,2), mar=c(2,0,2,0)) 
+
+#gib allen Spieler-Knoten (type=0) einen Kreis und färbe sie gelb
+#gib allen Organisationen inklusive Spielerberater (type=1) die Knotenform Quadrat und färbe sie rot
+
+V(Mendes)[V(Mendes)$type == 0]$shape <- "circle"  
+V(Mendes)[V(Mendes)$type == 1]$shape <- "square"
+V(Mendes)[V(Mendes)$type == 0]$color <- "yellow"
+V(Mendes)[V(Mendes)$type == 1]$color <- "red"
+
+#gib allen Spieler-Knoten (type=0) einen Kreis und färbe sie braun
+#gib allen Organisationen inklusive Spielerberater (type=1) die Knotenform Quadrat und färbe sie rot
+
+V(Ndiaye)[V(Ndiaye)$type == 0]$shape <- "circle"  
+V(Ndiaye)[V(Ndiaye)$type == 1]$shape <- "square"
+V(Ndiaye)[V(Ndiaye)$type == 0]$color <- "brown"
+V(Ndiaye)[V(Ndiaye)$type == 1]$color <- "red"
+
+
+plot(Mendes, layout=layout_nicely,
+     edge.arrow.size=.2,
+     edge.color="orange",
+     edge.curved=curve_multiple(Mendes),
+     main=" Teilnetzwerk Mendes",
+     sub="21 Knoten mit 183 Kanten")
+
+plot(Ndiaye, layout=layout_nicely, 
+     edge.arrow.size=.2,
+     edge.color="orange",
+     edge.curved=curve_multiple(Ndiaye),
+     main="Teilnetzwerk Ligabeziehung",
+     sub="21 Knoten mit 28 Kanten")
+
+
+#setzt die Darstellung wieder auf eine Abbildung zurück
+
+par(mfrow=c(1,1), mar=c(0,0,0,0))
+
+
+
+```
+Vergleichende Darstellung vom Netzwerk mit der höchsten Dichte (Teilnetzwerk Mendes: 43,6 Prozent) und dem mit der geringsten Dichte (Teilnetzwerk Ndiaye: 6,7 Prozent).
+
+
+```{r Visualisierung Ligazugehörigkeit, fig.height=12, fig.width=16}
+
+league_cl_walktrap <- cluster_walktrap(League)
+
+league_cl_walktrap
+
+plot(league_cl_walktrap, league, asp=0, edge.arrow.size=.2, vertex.size=5, main="Clusteranalyse des Netzwerk Leagues")
+
+#wie zu erwarten bildet jede Liga jeweils eng verbundene Knoten (Cluster)
+
+
+
+```
+Bundesliga, Premier League (BPL) und spanische Liga (BBVA) dominieren!
+
+```{r Visualisierung Teilnetzwerk Thomas Kroth / Pro Profil, fig.height=12, fig.width=16}
+
+#färbe alle deutschen Knoten gelb
+V(Kroth)[V(Kroth)$nation == 2]$color <- "yellow"
+
+#färbe alle Japaner blau
+V(Kroth)[V(Kroth)$nation == 22]$color <- "blue"
+
+#färbe alle Knoten von Organisationen rot
+V(Kroth)[V(Kroth)$type == 1]$color <- "red"
+
+#wir benutezn für diese Visualisierung visnetwork
+
+#lade Programmbibliothek visnetwork
+library(visNetwork)
+
+
+
+E(Kroth)$arrow.size <- 0.1 # Die Pfeilspitzengröße bei gerichteten Netzwerken.
+E(Kroth)$color <- "orange" # Die Farbe der Kanten.
+V(Kroth)$size <- 10 # Die Größe der Knoten.
+V(Kroth)$frame.color <- "transparent" # Der Rahmen der Knoten.
+V(Kroth)$label.color <- "black" # Die Farbe der Labels.
+
+visIgraph(Kroth, type = "full")
+
+
+````
+Es wird deutlich, dass Thomas Kroth nur zwei Spieler berät (graue Knotenfarbe, die nicht Japaner oder Deutsche sind.
+
+```{r Visualisierung wer setzt auf junge Spieler, fig.height=12, fig.width=16}
+
+business
+
+#färbe alle Knoten, die zwischen 18 und 21 sind, gelb
+V(business)[V(business)$age == 1]$color <- "yellow"
+
+plot(business,
+     asp=0, 
+     layout=layout_nicely,
+     vertex.size=5,
+     edge.arrow.size=.3,
+     edge.label.family="Helvetica",
+     edge.color="orange",
+     edge.curved=curve_multiple(business),
+     main="Visualisierung Business mit jungen Talenten")
+
+
+
+
+
+
+```
+Es wird deutlich: Raiola hat die meisten jungen Spieler iinnerhalb unseres Datensatzes. 
+
+
+
+
+## 5.3 Wichtige Akteure im Netzwerk
+
+# 6. Diskussion: Fazit, Limitationen und Ausblick
+
+Spielerberater sind nicht nur „geldgierige Piranhas“ wie Uli Hoeneß vor kurzem noch den Berater von David Alaba tituliert hat. Selbstverständlich sind sie Geschäftsmänner, die nach dem maximalen Gewinn für sich und ihre Klienten streben. Doch neben der Vermarktung ihrer Spieler haben sie noch viele weitere Aufgaben: Sie sind für die Spieler über Jahre hinweg Wegbegleiter, Ansprechpartner, Anker, Vaterfigur- ja fast schon Familie. Der wichtigste Faktor, um diese Rollen ausfüllen zu können, ist die Kommunikation. 
+
+Kein Wunder also, dass wir bei allen Spielerberatern eine extrem hohe Homophilie in Sachen Sprachen nachweisen konnten. Die Sprache und Kommunikation scheint also ein zentrales Merkmal für einen erfolgreichen Spielerberater zu sein. Einzige Auffälligkeit lässt sich hier bei Thomas Kroth erkennen, der neben vielen deutschsprachigen Bundesligaspielern auch einen großen Japan Block unter Vertrag hat. 
+
+Ein weiteres Muster, was sich bei den großen Spielerberatern erkennen lässt, ist, dass sie sich ein Netzwerk innerhalb eines Vereins aufbauen, indem sie gleich mehrere Spieler des Vereins beraten. (Oder dorthin transferieren) Zur Verdeutlichung: Im Schnitt hat fast jeder dritte Spieler innerhalb des Netzwerks eines Spielerberaters eine Beziehung zu einem anderen Spieler durch die gleiche Vereinszugehörigkeit. Allgemein legen Spielerberater großen Wert darauf, Clusters/Communities zu schaffen. Sie versuchen sich einen USP zu kreieren. Als Beispiel dafür kann man Fernando Felicevich betrachten. Er hat fast nur chilenische Nationalspieler in seinen Reihen. Er ist also der Mann für chilenische Talente, die etwas erreichen möchten. 
+
+Die meisten Spieler der Berater spielen in Europas Top Ligen, was zu erwarten war. Überraschend ist dennoch, dass mehr Spieler von unseren Spielerberater in der Bundesliga als in der finanzstarken englischen Premier League spielen.
+
+Trotzdem können wir gewisse Limitationen, die unser Netzwerk innehält, nicht von der Hand weisen. Dadurch, dass wir nur die 20 teuersten Spieler der jeweiligen Berater untersucht haben, fehlen Spieler mit geringeremn Marktwerten. Damit fehlen uns detaillierte Informationen über Vermarkungsstrategien von sehr jungen Talenten, erfahrenen Stars kurz vor dem Karriereende und Strategien anderer Art. Außerdem können wir mit unserem Datensatz nur den Stand zur Rückrunde der Saison 19/20 analysieren. Dadurch können wir mit unserem Datensatz die Transferwege der Spieler nicht rückverfolgen. Somit können wir keine Aussagen darüber treffen, in welche Ligen oder Vereine der Spielerberater seine Spieler bevorzugt transferiert. Wir können nur feststellen, dass zum Zeitpunkt der Rückrunde 19/20 Spielerberater X so und so viele Spieler aus Liga A, B etc. hatte. 
+
+Trotzdem können wir erkennen, dass die großen Spielerberater im Allgemeinen die gleichen Strategien verfolgen. Es geht darum, sich seine homophile Community zu schaffen. Dabei verschiebt sich nur der jeweilige Fokus. Denn lediglich in Einzelheiten wie der Präferenz gewisser Spieler mit Positionen (z.B. Angreifer) oder dem Alter der Spieler unterscheiden sich die Strategien der Spielerberater. Alle wollen sich aber einen USP kreieren und somit DER Berater für eine bestimmte Community sein. Somit bestätigten sich beide unserer Arbeitshypothesen. 
+
+
+
+
+# 7. Anlage
+## 7.1 Literatur
+
+Buschmann, Rafael; Wulzinger, Michael (2017) : Football Leaks: Die schmutzigen Geschäfte im Fußballgeschäft, Hamburg: Verlagsgruppe Random
+
+Carrieri, Vincenzo; Principe, Francesco; Raitano, Michele (2017) : What makes you "super-rich"? New evidence from an analysis of football players' earnings, Ruhr Economic Papers, No. 681, Essen: Leibniz-Institut für Wirtschaftsforschung
+
+Dersewski, Andre. (28.07.2016) Pogba-Berater Raiola: Es begann in einer Pizzeria. Kicker, Abgerufen von https://www.kicker.de/pogba-berater-raiola_es-begann-in-einer-pizzeria-656878/artikel
+
+Klemm, Thomas. (28.05.2019) Geld schießt Englands Tore. Frankfurter Allgemeine, Abgerufen von https://www.faz.net/aktuell/wirtschaft/unternehmen/dominanz-der-premier-league-geld-schiesst-englands-tore-16182281.html
+
+Krischen, Mario. (13.09.2020) Hoeneß: David hat einen geldgierigen Piranha als Berater. Kicker, Abgerufen von https://www.kicker.de/hoeness-david-hat-einen-geldgierigen-piranha-als-berater-784492/artikel
+
+
+Transfermarkt. (2020) Mino Raiola. Transfermarkt, Abgerufen von https://www.transfermarkt.de/mino-raiola/beraterfirma/berater/282
+
+Transfermarkt. (2020) Gestiftet (Jorge Mendes). Transfermarkt, Abgerufen von https://www.transfermarkt.de/gestifute/beraterfirma/berater/413
+
+Transfermarkt. (2020) Stellar Football Ltd (Jonathan Barnett). Transfermarkt, Abgerufen von https://www.transfermarkt.de/stellar-football-ltd/beraterfirma/berater/190
+
+Transfermarkt. (2020) Sports Total (Volker Struth). 
+Transfermarkt, Abgerufen von https://www.transfermarkt.de/sportstotal/beraterfirma/b…
+
+
+
+
+
+## 7.2 Codebuch
+
+https://github.com/226305-Spielerberater/SNA_5/blob/master/Codebuch-Datensatz-final.md
+
+
+
+## 7.3 Datenmaterial und Skript
+
+[edgelist](https://github.com/226305-Spielerberater/SNA_5/blob/master/Edges.csv)
+[nodelist](https://github.com/226305-Spielerberater/SNA_5/blob/master/Nodes.csv)
+
+## **** Link Skript Github******
+
+## 7.4 Team, Arbeitsaufwand und Lessons Learned
+
+Valentin Palleit: Datenerhebung, Forschungsbericht & Analyse, mind. 150 Stunden 
+
+Kevin Rippler: Datenerhebung, Forschungsbericht  & Analyse, mind. 150 Stunden 
+
+Antonio Jung (MVP): Datenerhebung, Forschungsbericht & Analyse, Coding, mind. 150 Stunden
+
+Johannes Volz: Datenerhebung, Forschungsbericht & Analyse, Literaturrecherche, mind. 150 Stunden
+
+
+Dieses Projekt hat uns viele Erkenntnisse gebracht. Als erstes wurde uns bewusst, wie wichtig eine strategische Organisation der Gruppenarbeit ist. Bei solch großen Projekten kommt es darauf an, dass man sich gut strukturiert und stets an einem Strang zieht. Erschwert wurde die Arbeit durch den Faktor Corona. Wir konnten uns lediglich digital treffen, was zunächst ungewohnt und umständlich wirkte. Aber wir haben uns relativ schnell an die Gegebenheiten gewöhnt. Das war wichtig, um effizient miteinander arbeiten zu können. Realisiert haben wir, dass wir Stärken in den unterschiedlichsten Bereichen haben, wodurch wir uns gut ergänzen konnten. Während das eine Teammitglied in R-Studio als federführend galt, konnte der andere Partner durch umfassende Recherchen glänzen. So gelang es uns, Kompetenzen gut zu verteilen, was wir im Nachhinein als Gewinn für das Projekt bewerten. Alles in allem hat diese Aufgabe unsere Teamfähigkeit und das Bewusstsein für Netzwerke verbessert. 
+
